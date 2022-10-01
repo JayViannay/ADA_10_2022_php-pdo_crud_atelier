@@ -47,9 +47,9 @@ php -S localhost:8000 -t app
 
 ### Fonctionnalités à développer :
 
-- CREATE : Création d'un article [http://localhost:8000/pages/create.php](http://localhost:8000/pages/create.php)
-- READ ONE : Affichage d'un article en détail [http://localhost:8000/pages/show.php?id=1](http://localhost:8000/pages/article.php?id=1)
-- DELETE : Suppression d'un article [http://localhost:8000/pages/delete.php?id=1](http://localhost:8000/pages/delete.php?id=1)
+- CREATE : Création d'un article [http://localhost:8000/pages/create.php](http://localhost:8000/pages/article/create.php)
+- READ ONE : Affichage d'un article en détail [http://localhost:8000/pages/show.php?id=1](http://localhost:8000/pages/article/show.php?id=1)
+- DELETE : Suppression d'un article [http://localhost:8000/pages/delete.php?id=1](http://localhost:8000/pages/article/delete.php?id=1)
 
 - Administration d'une nouvelle ressource : `category` (catégorie d'article)
 
