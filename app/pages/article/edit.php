@@ -34,7 +34,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="col-6 mx-auto">
         <form method="POST">
             <?php
-            // 📌 7.3 - Afficher un message d'erreur si le formulaire n'a pas été correctement rempli
             if (!empty($error)) {
                 echo "<div class='alert alert-danger'>" . $error . "</div>";
             }
