@@ -18,37 +18,31 @@ require '../../../.connec.php';
  * 📝 Récupérer les infos de l'article depuis l'id passé en paramètre d'URL
  */
 
-// 📌 1 - Déclarer une variable $article vide
-$article = "";
+// 📌 1 - Déclarer une variable $article vide ::TODO
 
-// 📌 2 - Vérifier que l'id est bien passé en paramètre d'URL
+// 📌 2 - Vérifier que l'id est bien passé en paramètre d'URL ::TODO
 if (isset($_GET['id']) && !empty($_GET['id'])) {
     // 📌 3 - Si l'id est bien passé en paramètre d'URL, réaliser une requête SQL pour récupérer les infos de l'article correspondant
-    $pdo = new PDO(DSN, USER, PASSWORD);
-    $statement = $pdo->prepare('SELECT * FROM article WHERE id=:id');
-    $statement->bindValue(':id', $_GET['id'], PDO::PARAM_INT);
-    $statement->execute();
     // 📌 4 - Stocker les infos de l'article dans la variable $article en utilisant la méthode fetch() 
     // et l'argument PDO::FETCH_OBJ pour récupérer les données en format objet
-    $article = $statement->fetch(PDO::FETCH_OBJ);
 }
 ?>
 <div class="row mt-5">
     <div class="col-4 mx-auto">
             <!-- afficher l'image de l'article -->
-            <img src="<?= $article->image ?>" class="card-img-top" alt="<?= $article->image ?>">
+            <img src="<?= 'ton code ici'; ?>" class="card-img-top" alt="<?= 'ton code ici'; ?>">
     </div>
     <div class="col-8">
         <!-- afficher le titre de l'article -->
-        <h5 class="card-title"><?= $article->title ?></h5>
+        <h5 class="card-title"><?= 'ton code ici'; ?></h5>
         <!-- afficher le contenu de l'article -->
-        <p class="card-text"><?= $article->content ?></p>
+        <p class="card-text"><?= 'ton code ici'; ?></p>
         <!-- afficher le lien de l'article pour le consulter sur une page dédié -->
         <a href="/" class="btn btn-dark btn-sm mx-auto"><i class="fa-solid fa-rotate-left"></i> return</a>
         <!-- afficher le lien de l'article pour le modifier sur une page dédié -->
-        <a href=<?="edit.php?id=".$article->id ?> class="btn btn-success btn-sm"><i class="fa-solid fa-pen"></i></a>
+        <a href=<?="edit.php?id=" ?> class="btn btn-success btn-sm"><i class="fa-solid fa-pen"></i></a>
         <!-- afficher le lien de l'article pour le supprimer -->
-        <a href=<?= "delete.php?id=".$article->id ?> class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></a>
+        <a href=<?= "delete.php?id=" ?> class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></a>
     </div>
 </div>
 <?php

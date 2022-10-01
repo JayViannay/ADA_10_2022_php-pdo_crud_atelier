@@ -33,7 +33,7 @@ include_once 'layouts/container_start.php';
 // 📌 1 Créer une instance de la classe PDO et se connecter à la base de données avec les constantes définies dans le fichier .connec.php
 $pdo = $pdo = new PDO(DSN, USER, PASSWORD);
 
-// 📌 (optionnel) Afficher un message si la connexion à la base de données a réussi
+// 📌 (optionnel) Afficher un message si la connexion à la base de données a réussi (décommenter les 3 lignes suivantes ligne ci-dessous)
 // if ($pdo) {
 //     echo "<p class='text-center alert alert-success'>Connexion à la base de données OK 😎<p>";
 // }

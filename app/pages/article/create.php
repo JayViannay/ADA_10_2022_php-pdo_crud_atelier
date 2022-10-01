@@ -24,32 +24,25 @@ $pdo = new PDO(DSN, USER, PASSWORD);
 // 📌 1 - Déclarer une variable d'erreur vide pour afficher un message d'erreur si le formulaire n'est pas rempli correctement
 $error = "";
 
-// 📌 2 - Vérifier que le formulaire a été soumis en methode POST
+// 📌 2 - Vérifier que le formulaire a été soumis en methode POST ::TODO 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // 📌 3.1 - S'assurer que tous les champs sont remplis
-    if (!empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['image'])) {
-        // 📌 4 - Si tous les champs sont remplis, réaliser une requête SQL pour insérer un nouvel article en base de données
-        // Il est préféable d'utiliser une requête préparée pour éviter les injections SQL
+    // S'assurer que tous les champs sont remplis
+   
+    // Si tous les champs sont remplis, réaliser une requête SQL pour insérer un nouvel article en base de données (INSERT INTO)
+    // Il est préféable d'utiliser une requête préparée pour éviter les injections SQL
         
-        //--------------------------------------------------------------
-        // 💡 Les requêtes préparées ? par ici => 
-        // - https://www.php.net/manual/fr/pdo.prepare.php
-        // - https://www.pierre-giraud.com/php-mysql-apprendre-coder-cours/requete-preparee/
-        // 💡 Injection SQL ? par ici => https://fr.wikipedia.org/wiki/Injection_SQL
-        //--------------------------------------------------------------
-        
-        $statement = $pdo->prepare("INSERT INTO article (title, content, image) VALUES (:title, :content, :image)");
-        $statement->bindValue(":title", $_POST['title'], PDO::PARAM_STR);
-        $statement->bindValue(":content", $_POST['content'], PDO::PARAM_STR);
-        $statement->bindValue(":image", $_POST['image'], PDO::PARAM_STR);
-        $statement->execute();
+    //--------------------------------------------------------------
+    // 💡 Les requêtes préparées ? par ici => 
+    // - https://www.php.net/manual/fr/pdo.prepare.php
+    // - https://www.pierre-giraud.com/php-mysql-apprendre-coder-cours/requete-preparee/
+    // 💡 Injection SQL ? par ici => https://fr.wikipedia.org/wiki/Injection_SQL
+    //--------------------------------------------------------------
 
-        // 📌 5 - Une fois l'article ajouté, rediriger l'utilisateur vers la page index.php
-        header('Location: /');
-    } else {
-        // 📌 3.2 - Si tous les champs ne sont pas remplis, afficher un message d'erreur
-        $error = "All fields are required !";
-    }
+
+    // Une fois l'article ajouté, rediriger l'utilisateur vers la page index.php
+    // header('Location: /');
+    
+    // Si tous les champs ne sont pas remplis, enregistrer un message d'erreur dans la variable $error
 }
 ?>
 <div class="row mt-5">
