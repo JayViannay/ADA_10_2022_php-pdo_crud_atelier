@@ -89,7 +89,7 @@ Je te souhaite bon courage et bon apprentissage ! :muscle:
 ### Evolutions possibles du projet :
 
 - @404 : Gérer les erreurs 404 au cas où l'utilisateur tente d'accéder à une ressource qui n'existe pas.
-  @refacto :Factoriser le code : créer des fonctions pour les requêtes SQL et les redirections. (créer un fichier `model_article.php` dans un dossier `model` et y écrire les fonctions nécessaires à l'application tout en les appelant dans les fichiers adéquats)
+- @refacto :Factoriser le code : créer des fonctions pour les requêtes SQL et les redirections. (créer un fichier `model_article.php` dans un dossier `model` et y écrire les fonctions nécessaires à l'application tout en les appelant dans les fichiers adéquats)
 - @handleErrorDb : Gérer les erreurs SQL : afficher un message d'erreur en cas d'erreur SQL pour les ressource article. (try/catch)
 - @handleEditCreateForm : Gérer les fonctionnalités de création et de modification des articles à l'aide d'un seul et même formulaire.
 - @ajax : Gérer les fonctionnalités du CRUD article en AJAX.
