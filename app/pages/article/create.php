@@ -8,11 +8,11 @@
  /*
  * 📝 Même démarche que pour la page index.php
  */
-include_once '../layouts/head.php';
-include_once '../layouts/body_start.php';
-include_once '../layouts/container_start.php';
+include_once '../../layouts/head.php';
+include_once '../../layouts/body_start.php';
+include_once '../../layouts/container_start.php';
 
-require '../../.connec.php';
+require '../../../.connec.php';
 
 $pdo = new PDO(DSN, USER, PASSWORD);
 
@@ -81,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </div>
 <?php
-include_once('../layouts/container_end.php');
-include_once('../layouts/scripts.php');
-include_once('../layouts/body_end.php');
+include_once('../../layouts/container_end.php');
+include_once('../../layouts/scripts.php');
+include_once('../../layouts/body_end.php');
 ?>

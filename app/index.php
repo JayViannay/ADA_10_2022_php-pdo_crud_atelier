@@ -76,11 +76,11 @@ include_once 'components/create_article.php';
                     <!-- afficher le contenu de l'article -->
                     <p class="card-text"><?= $article['content'] ?></p>
                     <!-- afficher le lien de l'article pour le consulter sur une page dédié -->
-                    <a href=<?="pages/show.php?id=".$article['id'] ?> class="btn btn-dark btn-sm mx-auto"><i class="fa-solid fa-eye"></i> read</a>
+                    <a href=<?="pages/article/show.php?id=".$article['id'] ?> class="btn btn-dark btn-sm mx-auto"><i class="fa-solid fa-eye"></i> read</a>
                     <!-- afficher le lien de l'article pour le modifier sur une page dédié -->
-                    <a href=<?="pages/edit.php?id=".$article['id'] ?> class="btn btn-success btn-sm"><i class="fa-solid fa-pen"></i></a>
+                    <a href=<?="pages/article/edit.php?id=".$article['id'] ?> class="btn btn-success btn-sm"><i class="fa-solid fa-pen"></i></a>
                     <!-- afficher le lien de l'article pour le supprimer -->
-                    <a href=<?= "pages/delete.php?id=".$article['id'] ?> class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></a>
+                    <a href=<?= "pages/article/delete.php?id=".$article['id'] ?> class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></a>
                 </div>
             </div>
         </div>

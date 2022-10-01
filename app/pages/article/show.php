@@ -8,11 +8,11 @@
 /*
 * 📝 Même démarche que pour la page index.php
 */
-include_once '../layouts/head.php';
-include_once '../layouts/body_start.php';
-include_once '../layouts/container_start.php';
+include_once '../../layouts/head.php';
+include_once '../../layouts/body_start.php';
+include_once '../../layouts/container_start.php';
 
-require '../../.connec.php';
+require '../../../.connec.php';
 
 /*
  * 📝 Récupérer les infos de l'article depuis l'id passé en paramètre d'URL
@@ -55,7 +55,7 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     </div>
 </div>
 <?php
-include_once('../layouts/container_end.php');
-include_once('../layouts/scripts.php');
-include_once('../layouts/body_end.php');
+include_once('../../layouts/container_end.php');
+include_once('../../layouts/scripts.php');
+include_once('../../layouts/body_end.php');
 ?>

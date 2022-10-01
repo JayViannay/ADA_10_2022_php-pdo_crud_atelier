@@ -5,7 +5,7 @@
  * URL: '/delete.php?id={id}'
  */
 
-require '../../.connec.php';
+require '../../../.connec.php';
 
  /*
  * 📝 Supprimer un article et rediriger l'utilisateur vers la page index.php

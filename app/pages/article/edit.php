@@ -8,11 +8,11 @@
  /*
  * 📝 Même démarche que pour la page index.php et create.php
  */
-include_once '../layouts/head.php';
-include_once '../layouts/body_start.php';
-include_once '../layouts/container_start.php';
+include_once '../../layouts/head.php';
+include_once '../../layouts/body_start.php';
+include_once '../../layouts/container_start.php';
 
-require '../../.connec.php';
+require '../../../.connec.php';
 
 /*
  * 📝 Récupérer les infos de l'article à modifier en base de données depuis l'id passé en paramètre d'URL
@@ -56,7 +56,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = "All fields are required !";
     }
 }
-
 ?>
 <div class="row mt-5">
     <h1 class="text-center">Update Article # <?= $article->id ?></h1>
@@ -92,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </div>
 <?php
-include_once('../layouts/container_end.php');
-include_once('../layouts/scripts.php');
-include_once('../layouts/body_end.php');
+include_once('../../layouts/container_end.php');
+include_once('../../layouts/scripts.php');
+include_once('../../layouts/body_end.php');
 ?>
