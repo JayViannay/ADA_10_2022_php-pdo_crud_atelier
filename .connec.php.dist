@@ -1,12 +1,12 @@
 <?php
 
 /**
- * DEFINITION DES VARIABLES D'ENVIRONNEMENT DU PROJET POUR LA CONNEXION A LA BASE DE DONNEES
+ * DEFINITION DES VARIABLES D'ENVIRONNEMENT DU PROJET POUR LA CONNEXION À LA BASE DE DONNEES
  * 💡Ce fichier peut être COPIER/COLLER et réajusté dans un fichier nommé .connec.php à la racine du projet
  */ 
 
 /* 
- * @UBUNTU or @WINDOWS configuration : MySQL Serveur tourne sur le port 3306
+ * @UBUNTU or @WINDOWS configuration : MySQL Serveur tourne sur le port 3306 la plupart du temps
  * @MAC & MAMP configuration : MySQL Serveur tourne sur le port 8889 
  * 🐣 Assures toi d'avoir bien démarrer les services de MAMP
  */
