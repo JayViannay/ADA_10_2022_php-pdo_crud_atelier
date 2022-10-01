@@ -81,8 +81,9 @@ Je te souhaite bon courage et bon apprentissage ! :muscle:
 
 ### Tips :
 
-> 👀 Lorsqu'on mélange du code HTML et du code PHP, il est préférable de respecter les bonnes pratiques d'indentation afin de faciliter la lisibilité du code.
-> 👀 Quand on ouvre une balise PHP, on ferme la balise PHP à la fin de l'instruction. ```<?php echo 'ici du code php'; ?>```
+> 👀 Il y a un template `_default.template.php` à la racine du dossier `pages` que tu peux utiliser pour la création de nouvelles pages, en utilisant le template tu gagneras du temps sur la mise en forme de tes pages. <br>
+> 👀 Lorsqu'on mélange du code HTML et du code PHP, il est préférable de respecter les bonnes pratiques d'indentation afin de faciliter la lisibilité du code. <br>
+> 👀 Quand on ouvre une balise PHP, on ferme la balise PHP à la fin de l'instruction. ```<?php echo 'ici du code php'; ?>``` <br>
 > 👀 Pour débugger du PHP on peut utiliser la fonction `var_dump()` ou `print_r()`.
 
 
