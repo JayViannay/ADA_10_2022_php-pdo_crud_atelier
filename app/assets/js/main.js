@@ -1,0 +1,1 @@
+console.log('👋 Hello from public/assets/js/main.js');
