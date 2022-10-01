@@ -42,7 +42,7 @@ php -S localhost:8000 -t app
 ### Fonctionnalités présentes dans l'application :
 
 - READ ALL : Affichage de la liste des articles [http://localhost:8000](http://localhost:8000)
-- UPDATE : edition d'un article [http://localhost:8000/pages/edit.php?id=1](http://localhost:8000/pages/edit.php?id=1)
+- UPDATE : edition d'un article [http://localhost:8000/pages/article/edit.php?id=1](http://localhost:8000/pages/edit.php?id=1)
 
 
 ### Fonctionnalités à développer :
