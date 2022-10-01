@@ -72,7 +72,10 @@ Pense à bien respecter les bonnes pratiques de développement et de programmati
 
 Tu peux commencer par consulter le fichier public/index.php et public/pages/edit.php pour comprendre le fonctionnement de l'application.
 
-Lance toi ensuite sur l'ajout du CREATE, READ ONE ou UPDATE, le code et fragmenté et indique à quel endroit il doit être adapté.
+Lance toi ensuite sur l'ajout du CREATE, READ ONE ou DELETE, le code est fragmenté et indique à quel endroit il doit être adapté.
+
+Une fois que tu en as terminé avec la ressources `article`, passe à la ressource `category`. 
+Tu verras que le code est très similaire dès lors que tu as un premier CRUD fonctionnel sur une ressource.
 
 Je te souhaite bon courage et bon apprentissage ! :muscle:
 
