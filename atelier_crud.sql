@@ -5,19 +5,20 @@
   -- Ouvrir le fichier avec un éditeur de texte et copier/coller le contenu dans la console de PhpMyAdmin (onglet SQL)
 
 -- 2. Si tu n'as pas PhpMyAdmin alors on peut le faire en ligne de commande :
-  -- 2.1. Se connecter au serveur MySQL depuis le terminal : `mysql -u root -p` si vous avez mysql d'installé sur votre machine sans MAMP ou autre 
-  -- Si vous avez MAMP éxécuter le serveur MySQL depuis le terminal : `Applications/MAMP/Library/bin/mysql -u root -p` || mdp : root 
-  -- 2.2. Une fois connecté au serveur MySQL, exécuter le script : `source /chemin/vers/atelier_crud.sql`
+  -- 2.1. Se connecter au serveur MySQL depuis le terminal : `mysql -u root -p` si tu as mysql d'installé sur ta machine sans MAMP ou autre 
+  -- Si tu as MAMP, pour accéder au serveur MySQL depuis le terminal tu peux faire : `Applications/MAMP/Library/bin/mysql -u root -p` || mdp : root 
+  -- 2.2. Une fois connecté au serveur MySQL, tu peux exécuter la commande suivante : `source /chemin/vers/atelier_crud.sql`
   -- ou
   -- 2.2 Copier/Coller le contenu du fichier dans le terminal mysql et appuyer sur Entrée
 
--- 3. La plus sombre :
-  -- Ouvrir le fichier avec un éditeur de texte et exécuter la commande suivante dans le terminal : mysql -u root -p atelier_pdo < atelier_crud.sql
+-- 3. Tu peux trouver encore d'autres solutions sur internet, mais je te conseille de commencer par celles-ci pour bien comprendre le fonctionnement
 
--- Propositions de ressources :
+-- Propositions de ressources pour importer un script SQL en local :
   -- https://www.youtube.com/watch?v=gvcBDA2wJJ4 Using Workbench
   -- https://www.youtube.com/watch?v=jW5lrS6EUPM Using Terminal
   -- https://www.youtube.com/watch?v=uyP46E0UA9I Using PhpMyAdmin
+
+
 
 -- --------------------------------------------------------
 -- CREATION DE LA BASE DE DONNÉES : 
@@ -25,7 +26,7 @@
 CREATE DATABASE `atelier_crud`;
 
 -- --------------------------------------------------------
--- DÉPLACEMENT SUR LA BASE DE DONNÉES : 
+-- DÉPLACEMENT SUR LA BASE DE DONNÉES : (si tu utilises la ligne de commande)
 
 USE `atelier_crud`;
 
