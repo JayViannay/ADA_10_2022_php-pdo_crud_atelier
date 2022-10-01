@@ -69,7 +69,7 @@ CREATE TABLE `category` (
 En t'aidant des commentaires présents dans le code source de l'application, dévoloppe les fonctionnalités manquantes.
 Pense à bien respecter les bonnes pratiques de développement et de programmation.
 
-Tu peux commencer par consulter le fichier public/index.php et public/pages/edit.php pour comprendre le fonctionnement de l'application.
+Tu peux commencer par consulter le fichier app/index.php et app/pages/article/edit.php pour comprendre le fonctionnement de l'application.
 
 Lance toi ensuite sur l'ajout du CREATE, READ ONE ou DELETE, le code est fragmenté et indique à quel endroit il doit être adapté.
 
@@ -83,7 +83,7 @@ Je te souhaite bon courage et bon apprentissage ! :muscle:
 > 👀 Il y a un template `_default.template.php` à la racine du dossier `pages` que tu peux utiliser pour la création de nouvelles pages, en utilisant le template tu gagneras du temps sur la mise en forme de tes pages. <br>
 > 👀 Lorsqu'on mélange du code HTML et du code PHP, il est préférable de respecter les bonnes pratiques d'indentation afin de faciliter la lisibilité du code. <br>
 > 👀 Quand on ouvre une balise PHP, on ferme la balise PHP à la fin de l'instruction. ```<?php echo 'ici du code php'; ?>``` <br>
-> 👀 Pour débugger du PHP on peut utiliser la fonction `var_dump()` ou `print_r()`.
+> 👀 Pour débugger du code PHP on peut utiliser la fonction `var_dump()` ou `print_r()`.
 
 
 ### Evolutions possibles du projet :
@@ -93,4 +93,4 @@ Je te souhaite bon courage et bon apprentissage ! :muscle:
 - @handleErrorDb : Gérer les erreurs SQL : afficher un message d'erreur en cas d'erreur SQL pour les ressource article. (try/catch)
 - @handleEditCreateForm : Gérer les fonctionnalités de création et de modification des articles à l'aide d'un seul et même formulaire.
 - @ajax : Gérer les fonctionnalités du CRUD article en AJAX.
-- @relation : Ajouter une relation entre le table `article` et `category` (clé étrangère) et ajuster la création, l'édition et la suppression des article en AJAX en prenant en compte la relation entre les deux tables.
+- @relation : Ajouter une relation entre le table `article` et `category` (clé étrangère) et ajuster la création, l'édition et la suppression des articles en AJAX en prenant en compte la relation entre les deux tables.
