@@ -10,11 +10,11 @@ include_once 'layouts/body_start.php';
 include_once 'layouts/container_start.php';
 require '../.connec.php';
 ?>
-<div class="row">
+    <div class="row">
+        <h1>DEFAULT TEMPLATE</h1>
+        // Your code here
+        <!-- 📝 INSERER LE CODE HTML DE LA PAGE ICI -->
     </div>
-    <h1>DEFAULT TEMPLATE</h1>
-    // Your code here
-    <!-- 📝 INSERER LE CODE HTML DE LA PAGE ICI -->
 <?php 
 include_once('layouts/container_end.php');
 include_once ('layouts/scripts.php');

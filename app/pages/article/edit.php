@@ -1,12 +1,8 @@
 <?php
 /*
- * @3 - PAGE QUI PERMET DE MODIFIER UN ARTICLE EN BASE DE DONNEES
+ * @ PAGE QUI PERMET DE MODIFIER UN ARTICLE EN BASE DE DONNEES
  * Path: public/pages/article/edit.php
  * URL: '/pages/article/edit.php?id={id}'
- */
-
- /*
- * 📝 Même démarche que pour la page index.php et create.php
  */
 include_once '../../layouts/head.php';
 include_once '../../layouts/body_start.php';
@@ -18,8 +14,6 @@ $article = "";
 if (isset($_GET['id']) && !empty($_GET['id'])) {
     $article = readOne($_GET['id']);
 }
-
-// 📌 6 - Vérifier que le formulaire a été soumis en methode POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['image'])) {
         update($article->id, $_POST['title'], $_POST['content'], $_POST['image']);

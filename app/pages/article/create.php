@@ -1,12 +1,8 @@
 <?php
 /*
- * @2 - PAGE QUI PERMET D'AJOUTER UN ARTICLE EN BASE DE DONNEES
+ * @ PAGE QUI PERMET D'AJOUTER UN ARTICLE EN BASE DE DONNEES
  * Path: app/pages/article/create.php
  * URL: '/pages/article/create.php'
- */
-
- /*
- * 📝 Même démarche que pour la page index.php
  */
 include_once '../../layouts/head.php';
 include_once '../../layouts/body_start.php';
@@ -15,8 +11,6 @@ include_once '../../layouts/container_start.php';
 require '../../../model/article_model.php';
 
 $error = "";
-
-// 📌 2 - Vérifier que le formulaire a été soumis en methode POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['image'])) {
         create($_POST['title'], $_POST['content'], $_POST['image']);
