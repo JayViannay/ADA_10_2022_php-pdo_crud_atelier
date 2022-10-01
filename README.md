@@ -51,7 +51,7 @@ php -S localhost:8000 -t app
 - READ ONE : Affichage d'un article en détail [http://localhost:8000/pages/article/show.php?id=1](http://localhost:8000/pages/article/show.php?id=1)
 - DELETE : Suppression d'un article [http://localhost:8000/pages/article/delete.php?id=1](http://localhost:8000/pages/article/delete.php?id=1)
 
-- Administration d'une nouvelle ressource : `category` (catégorie d'article)
+- CRUD d'une nouvelle ressource : `category` (catégorie d'article)
 
 ```sql
 CREATE TABLE `category` (
