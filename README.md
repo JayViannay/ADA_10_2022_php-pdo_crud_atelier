@@ -28,12 +28,18 @@ git clone git@github.com:JennyViannay/ADA_10_2022_php-pdo_crud_atelier.git ateli
 
 ### Lancer le projet
 
-[WebServer PHP doc](https://www.php.net/manual/fr/features.commandline.webserver.php)
-
-- Lancer le serveur PHP en ligne de commande depuis la racine du dossier (l'attribut `-t` permet de spécifier le dossier racine dans lequel se trouve l'application, dans notre cas il s'agit du dossier `app`):
+- Lancer le serveur PHP en ligne de commande depuis la racine du dossier 
 
 ```bash
 php -S localhost:8000 -t app
 ```
 
+>💡 L'attribut `-t` permet de spécifier le dossier racine dans lequel se >trouve l'application, dans notre cas il s'agit du dossier `app`):
+>[WebServer PHP doc](https://www.php.net/manual/fr/features.commandline.webserver.php)
+
 - Ouvrir l'application dans un navigateur à l'adresse suivante: [http://localhost:8000](http://localhost:8000)
+
+### Fonctionnalités présentes dans l'application :
+
+- Affichage de la liste des articles [http://localhost:8000](http://localhost:8000)
+- Update d'un article [http://localhost:8000/pages/edit.php?id=1](http://localhost:8000/pages/edit.php?id=1)
