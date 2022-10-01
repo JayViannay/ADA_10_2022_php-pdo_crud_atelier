@@ -1,8 +1,8 @@
 <?php
 /*
  * @3 - PAGE QUI PERMET DE MODIFIER UN ARTICLE EN BASE DE DONNEES
- * Path: public/edit.php
- * URL: '/edit.php?id={id}'
+ * Path: public/pages/article/edit.php
+ * URL: '/pages/article/edit.php?id={id}'
  */
 
  /*
@@ -31,7 +31,6 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     // 📌 4 - Stocker les infos de l'article dans la variable $article en utilisant la méthode fetch() 
     // et l'argument PDO::FETCH_OBJ pour récupérer les données en format objet
     $article = $statement->fetch(PDO::FETCH_OBJ);
-    header('Location : /');
 } 
 /*
  * 📝 Traiter le formulaire de modification d'article

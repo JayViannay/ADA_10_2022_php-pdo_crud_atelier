@@ -1,7 +1,7 @@
 <?php
 /*
  * @1 - PAGE QUI LISTE TOUS LES ARTICLES
- * Path: public/index.php
+ * Path: app/index.php
  * URL: '/'
  */
 

@@ -1,8 +1,8 @@
 <?php
 /*
  * @4 - Supprimer un article
- * Path: public/delete.php
- * URL: '/delete.php?id={id}'
+ * Path: app/pages/article/delete.php
+ * URL: '/pages/article/delete.php?id={id}'
  */
 
 require '../../../.connec.php';

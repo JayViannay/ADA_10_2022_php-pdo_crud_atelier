@@ -1,8 +1,8 @@
 <?php
 /*
  * @2 - PAGE QUI PERMET D'AJOUTER UN ARTICLE EN BASE DE DONNEES
- * Path: public/create.php
- * URL: '/create.php'
+ * Path: app/pages/article/create.php
+ * URL: '/pages/article/create.php'
  */
 
  /*
