@@ -55,11 +55,11 @@ function update(int $id, string $title, string $content, string $image)
 /*
  * @delete article
  */
-function delete()
+function delete(int $id)
 {
     require '../../../.connec.php';
     $pdo = new PDO(DSN, USER, PASSWORD);
     $statement = $pdo->prepare("DELETE FROM article WHERE id=:id");
-    $statement->bindValue(':id', $_GET['id'], PDO::PARAM_INT);
+    $statement->bindValue(':id', $id, PDO::PARAM_INT);
     $statement->execute();
 }
