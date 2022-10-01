@@ -59,11 +59,11 @@ CREATE TABLE `category` (
     `name` varchar(255) NOT NULL);
 ```
 
-    - CREATE : Création d'une catégorie [http://localhost:8000/pages/category/create.php](http://localhost:8000/pages/category/create.php)
-    - READ ALL : Affichage de la liste des catégories [http://localhost:8000/pages/category/index.php](http://localhost:8000/pages/category/index.php)
-    - READ ONE : Affichage d'une catégorie en détail [http://localhost:8000/pages/category/show.php?id=1](http://localhost:8000/pages/category/show.php?id=1)
-    - UPDATE : edition d'une catégorie [http://localhost:8000/pages/category/edit.php?id=1](http://localhost:8000/pages/category/edit.php?id=1)
-    - DELETE : Suppression d'une catégorie [http://localhost:8000/pages/category/delete.php?id=1](http://localhost:8000/pages/category/delete.php?id=1)
+- CREATE : Création d'une catégorie [http://localhost:8000/pages/category/create.php](http://localhost:8000/pages/category/create.php)
+- READ ALL : Affichage de la liste des catégories [http://localhost:8000/pages/category/index.php](http://localhost:8000/pages/category/index.php)
+- READ ONE : Affichage d'une catégorie en détail [http://localhost:8000/pages/category/show.php?id=1](http://localhost:8000/pages/category/show.php?id=1)
+- UPDATE : edition d'une catégorie [http://localhost:8000/pages/category/edit.php?id=1](http://localhost:8000/pages/category/edit.php?id=1)
+- DELETE : Suppression d'une catégorie [http://localhost:8000/pages/category/delete.php?id=1](http://localhost:8000/pages/category/delete.php?id=1)
 
 
 ### Consignes : 
@@ -72,7 +72,10 @@ Pense à bien respecter les bonnes pratiques de développement et de programmati
 
 Tu peux commencer par consulter le fichier public/index.php et public/pages/edit.php pour comprendre le fonctionnement de l'application.
 
-Lance toi ensuite sur l'ajout du CREATE, READ ONE ou UPDATE, le code et fragmenté et indique à quel endroit il doit être adapté.
+Lance toi ensuite sur l'ajout du CREATE, READ ONE ou DELETE, le code est fragmenté et indique à quel endroit il doit être adapté.
+
+Une fois que tu en as terminé avec la ressources `article`, passe à la ressource `category`. 
+Tu verras que le code est très similaire dès lors que tu as un premier CRUD fonctionnel sur une ressource.
 
 Je te souhaite bon courage et bon apprentissage ! :muscle:
 
