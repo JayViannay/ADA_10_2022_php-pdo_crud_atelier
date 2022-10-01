@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * DEFINITION DES VARIABLES D'ENVIRONNEMENT DU PROJET POUR LA CONNEXION A LA BASE DE DONNEES
+ * 💡Ce fichier peut être COPIER/COLLER et réajusté dans un fichier nommé .connec.php à la racine du projet
+ */ 
+
+/* 
+ * @UBUNTU or @WINDOWS configuration : MySQL Serveur tourne sur le port 3306
+ * @MAC & MAMP configuration : MySQL Serveur tourne sur le port 8889 
+ * 🐣 Assures toi d'avoir bien démarrer les services de MAMP
+ */
+
+/*
+ * @Exemple d'une connection à un serveur MySQL MAMP :
+ */
+
+/*
+ * 📌 1 - Définir la constante DSN, c'est à dire donner le chemin d'accès de notre serveur MySQL local,
+ * ainsi que le nom de la base de données à laquelle on souhaite se connecter;
+ * cela sous entend que nous avons déjà une base de données qui existe même si celle-ci est pour l'instant vide
+ *  🐥 si tu es sur un autre serveur que MAMP, tu peux modifier le port de connexion par 3306
+ */
+define("DSN", "mysql:host=localhost:8889;dbname=atelier_crud");
+
+/*
+ * 📌 2 - Définir la constante USER avec le nom d'utilisateur qui nous permettra de nous connecter au serveur MySQL local
+ * Dans le cas de MAMP, l'utilisateur par défaut est "root"
+ *  🐥 si tu es sur un autre serveur que MAMP, tu peux remplacer "root" par ton nom d'utilisateur
+ */
+define("USER", "root");
+
+/*
+ * 📌 3 - Définir la constante PASSWORD avec le mot de passe de l'utilisateur root
+ * Dans le cas de MAMP, le mot de passe par défaut est root également
+ *  🐥 si tu es sur un autre serveur que MAMP, tu peux remplacer "root" par ton propre mot de passe d'utilisateur
+ */
+define("PASSWORD", "root");
