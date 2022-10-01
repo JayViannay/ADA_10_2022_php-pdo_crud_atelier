@@ -41,5 +41,53 @@ php -S localhost:8000 -t app
 
 ### Fonctionnalités présentes dans l'application :
 
-- Affichage de la liste des articles [http://localhost:8000](http://localhost:8000)
-- Update d'un article [http://localhost:8000/pages/edit.php?id=1](http://localhost:8000/pages/edit.php?id=1)
+- READ ALL : Affichage de la liste des articles [http://localhost:8000](http://localhost:8000)
+- UPDATE : edition d'un article [http://localhost:8000/pages/edit.php?id=1](http://localhost:8000/pages/edit.php?id=1)
+
+
+### Fonctionnalités à développer :
+
+- CREATE : Création d'un article [http://localhost:8000/pages/create.php](http://localhost:8000/pages/create.php)
+- READ ONE : Affichage d'un article en détail [http://localhost:8000/pages/show.php?id=1](http://localhost:8000/pages/article.php?id=1)
+- DELETE : Suppression d'un article [http://localhost:8000/pages/delete.php?id=1](http://localhost:8000/pages/delete.php?id=1)
+
+- Administration d'une nouvelle ressource : `category` (catégorie d'article)
+
+```sql
+CREATE TABLE `category` (
+    `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `name` varchar(255) NOT NULL);
+```
+
+    - CREATE : Création d'une catégorie [http://localhost:8000/pages/category/create.php](http://localhost:8000/pages/category/create.php)
+    - READ ALL : Affichage de la liste des catégories [http://localhost:8000/pages/category/index.php](http://localhost:8000/pages/category/index.php)
+    - READ ONE : Affichage d'une catégorie en détail [http://localhost:8000/pages/category/show.php?id=1](http://localhost:8000/pages/category/show.php?id=1)
+    - UPDATE : edition d'une catégorie [http://localhost:8000/pages/category/edit.php?id=1](http://localhost:8000/pages/category/edit.php?id=1)
+    - DELETE : Suppression d'une catégorie [http://localhost:8000/pages/category/delete.php?id=1](http://localhost:8000/pages/category/delete.php?id=1)
+
+
+### Consignes : 
+En t'aidant des commentaires présents dans le code source de l'application, dévoloppe les fonctionnalités manquantes.
+Pense à bien respecter les bonnes pratiques de développement et de programmation.
+
+Tu peux commencer par consulter le fichier public/index.php et public/pages/edit.php pour comprendre le fonctionnement de l'application.
+
+Lance toi ensuite sur l'ajout du CREATE, READ ONE ou UPDATE, le code et fragmenté et indique à quel endroit il doit être adapté.
+
+Je te souhaite bon courage et bon apprentissage ! :muscle:
+
+### Tips :
+
+> 👀 Lorsqu'on mélange du code HTML et du code PHP, il est préférable de respecter les bonnes pratiques d'indentation afin de faciliter la lisibilité du code.
+> 👀 Quand on ouvre une balise PHP, on ferme la balise PHP à la fin de l'instruction. ```<?php echo 'ici du code php'; ?>```
+> 👀 Pour débugger du PHP on peut utiliser la fonction `var_dump()` ou `print_r()`.
+
+
+### Evolutions possibles du projet :
+
+- @404 : Gérer les erreurs 404 au cas où l'utilisateur tente d'accéder à une ressource qui n'existe pas.
+  @refacto :Factoriser le code : créer des fonctions pour les requêtes SQL et les redirections. (créer un fichier `model_article.php` dans un dossier `model` et y écrire les fonctions nécessaires à l'application tout en les appelant dans les fichiers adéquats)
+- @handleErrorDb : Gérer les erreurs SQL : afficher un message d'erreur en cas d'erreur SQL pour les ressource article. (try/catch)
+- @handleEditCreateForm : Gérer les fonctionnalités de création et de modification des articles à l'aide d'un seul et même formulaire.
+- @ajax : Gérer les fonctionnalités du CRUD article en AJAX.
+- @relation : Ajouter une relation entre le table `article` et `category` (clé étrangère) et ajuster la création, l'édition et la suppression des article en AJAX en prenant en compte la relation entre les deux tables.

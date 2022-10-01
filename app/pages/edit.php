@@ -31,11 +31,8 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
     // 📌 4 - Stocker les infos de l'article dans la variable $article en utilisant la méthode fetch() 
     // et l'argument PDO::FETCH_OBJ pour récupérer les données en format objet
     $article = $statement->fetch(PDO::FETCH_OBJ);
-} else {
-    // 📌 5 - Si l'id n'est pas passé en paramètre d'URL, rediriger l'utilisateur vers la page index.php
-    header('Location : index.php');
-}
-
+    header('Location : /');
+} 
 /*
  * 📝 Traiter le formulaire de modification d'article
  */
