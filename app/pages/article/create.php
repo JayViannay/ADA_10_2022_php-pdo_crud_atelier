@@ -12,42 +12,16 @@ include_once '../../layouts/head.php';
 include_once '../../layouts/body_start.php';
 include_once '../../layouts/container_start.php';
 
-require '../../../.connec.php';
+require '../../../model/article_model.php';
 
-$pdo = new PDO(DSN, USER, PASSWORD);
-
-/*
- * 📝 Traiter le formulaire d'ajout d'article
- * Tous les champs du formulaire sont requis, il ne doit donc pas être possible d'ajouter un article sans titre, contenu ou image
- */
-
-// 📌 1 - Déclarer une variable d'erreur vide pour afficher un message d'erreur si le formulaire n'est pas rempli correctement
 $error = "";
 
 // 📌 2 - Vérifier que le formulaire a été soumis en methode POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // 📌 3.1 - S'assurer que tous les champs sont remplis
     if (!empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['image'])) {
-        // 📌 4 - Si tous les champs sont remplis, réaliser une requête SQL pour insérer un nouvel article en base de données
-        // Il est préféable d'utiliser une requête préparée pour éviter les injections SQL
-        
-        //--------------------------------------------------------------
-        // 💡 Les requêtes préparées ? par ici => 
-        // - https://www.php.net/manual/fr/pdo.prepare.php
-        // - https://www.pierre-giraud.com/php-mysql-apprendre-coder-cours/requete-preparee/
-        // 💡 Injection SQL ? par ici => https://fr.wikipedia.org/wiki/Injection_SQL
-        //--------------------------------------------------------------
-        
-        $statement = $pdo->prepare("INSERT INTO article (title, content, image) VALUES (:title, :content, :image)");
-        $statement->bindValue(":title", $_POST['title'], PDO::PARAM_STR);
-        $statement->bindValue(":content", $_POST['content'], PDO::PARAM_STR);
-        $statement->bindValue(":image", $_POST['image'], PDO::PARAM_STR);
-        $statement->execute();
-
-        // 📌 5 - Une fois l'article ajouté, rediriger l'utilisateur vers la page index.php
+        create($_POST['title'], $_POST['content'], $_POST['image']);
         header('Location: /');
     } else {
-        // 📌 3.2 - Si tous les champs ne sont pas remplis, afficher un message d'erreur
         $error = "All fields are required !";
     }
 }
