@@ -61,7 +61,7 @@ CREATE TABLE `category` (
 
 - CREATE : Création d'une catégorie [http://localhost:8000/pages/category/create.php](http://localhost:8000/pages/category/create.php)
 - READ ALL : Affichage de la liste des catégories [http://localhost:8000/pages/category/index.php](http://localhost:8000/pages/category/index.php)
-- UPDATE : edition d'une catégorie [http://localhost:8000/pages/category/edit.php?id=1](http://localhost:8000/pages/category/edit.php?id=1)
+- UPDATE : Édition d'une catégorie [http://localhost:8000/pages/category/edit.php?id=1](http://localhost:8000/pages/category/edit.php?id=1)
 - DELETE : Suppression d'une catégorie [http://localhost:8000/pages/category/delete.php?id=1](http://localhost:8000/pages/category/delete.php?id=1)
 
 
