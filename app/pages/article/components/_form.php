@@ -9,11 +9,16 @@
             ?>
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
+                <!-- @05_relation gerer l'affichage, si $article n'existe pas on affihce rien mais si il exsite on affiche ses valeurs dans le form" -->
                 <input type="text" class="form-control" id="title" name="title" value=<?= isset($article) ? $article->title : "" ?>>
             </div>
             <div class="mb-3">
+            <!-- @05_relation gestion du champs category_id de la table article 
+                Ajout d'un nouveau champs select pour le choix d'un categorie
+            -->
                 <select class="form-select" name="category_id" id="category_id">
                     <option selected>Select a category</option>
+                    <!-- Boucle sur les categories pour afficher les options -->
                     <?php foreach ($categories as $category) : ?>
                         <option value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
                     <?php endforeach; ?>

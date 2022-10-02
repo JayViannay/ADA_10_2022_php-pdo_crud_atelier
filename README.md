@@ -1,96 +1,52 @@
-# ATELIER CRUD - PHP/PDO
+# ATELIER CRUD - @05_relation many to one Article / Category
 
 ## Présentation
 
-L'application est développée en PHP et utilise une base de données MySQL.
+L'objectif de cet exercice est de créer une relation entre deux entités : `Article` et `Category`.
 
-L'atelier CRUD est un micro projet qui consiste à créer une application web de gestion d'articles et d'introduire les notions de CRUD (Create, Read, Update, Delete), PDO, SQL, OBJET, et de renforcer les notions de PHP.
+En effet, considérons que nous sommes sur un blog, et que nous souhaitons trier nos articles par catégorie en partant du principe que chaque article ne peut appartenir qu'à une seule catégorie mais qu'une catégorie peut contenir plusieurs articles.
 
-
-## Installation du projet
-
->##### Prérequis :
->- PHP >= 7.4
->- PDO DRIVER ON
->- MySQL >= 5.7
-
-### Cloner le projet
-```bash
-git clone git@github.com:JennyViannay/ADA_10_2022_php-pdo_crud_atelier.git atelier-crud-php-pdo
-```
-
-### Configuration de la base de données
-
-- Créer une base de données MySQL depuis le fichier `atelier_crud.sql` situé à la racine du projet.
-
-- Créer un fichier `.connec.php` à la racine du projet et y renseigner les informations de connexion à la base de données comme dans l'exemple du fichier `.connec.php.dist`.
-
-
-### Lancer le projet
-
-- Lancer le serveur PHP en ligne de commande depuis la racine du dossier 
-
-```bash
-php -S localhost:8000 -t app
-```
-
->💡 L'attribut `-t` permet de spécifier le dossier racine dans lequel se >trouve l'application, dans notre cas il s'agit du dossier `app`):
->[WebServer PHP doc](https://www.php.net/manual/fr/features.commandline.webserver.php)
-
-- Ouvrir l'application dans un navigateur à l'adresse suivante: [http://localhost:8000](http://localhost:8000)
-
-### Fonctionnalités présentes dans l'application :
-
-- READ ALL : Affichage de la liste des articles [http://localhost:8000](http://localhost:8000)
-- UPDATE : edition d'un article [http://localhost:8000/pages/edit.php?id=1](http://localhost:8000/pages/edit.php?id=1)
-
-
-### Fonctionnalités à développer :
-
-- CREATE : Création d'un article [http://localhost:8000/pages/create.php](http://localhost:8000/pages/create.php)
-- READ ONE : Affichage d'un article en détail [http://localhost:8000/pages/show.php?id=1](http://localhost:8000/pages/article.php?id=1)
-- DELETE : Suppression d'un article [http://localhost:8000/pages/delete.php?id=1](http://localhost:8000/pages/delete.php?id=1)
-
-- Administration d'une nouvelle ressource : `category` (catégorie d'article)
-
-```sql
-CREATE TABLE `category` (
-    `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `name` varchar(255) NOT NULL);
-```
-
-- CREATE : Création d'une catégorie [http://localhost:8000/pages/category/create.php](http://localhost:8000/pages/category/create.php)
-- READ ALL : Affichage de la liste des catégories [http://localhost:8000/pages/category/index.php](http://localhost:8000/pages/category/index.php)
-- UPDATE : edition d'une catégorie [http://localhost:8000/pages/category/edit.php?id=1](http://localhost:8000/pages/category/edit.php?id=1)
-- DELETE : Suppression d'une catégorie [http://localhost:8000/pages/category/delete.php?id=1](http://localhost:8000/pages/category/delete.php?id=1)
-
+Il s'agit donc d'un relation `many to one` (plusieurs articles peuvent appartenir qu'à une seule catégorie).
 
 ### Consignes : 
-En t'aidant des commentaires présents dans le code source de l'application, dévoloppe les fonctionnalités manquantes.
-Pense à bien respecter les bonnes pratiques de développement et de programmation.
+Pour cette nouvelle fonctionnalité, tu t'en doutes il va donc nous falloir modifier notre base de données :
+- La premère chose à faire est d'ajouter un champ `category_id` dans la table `article` (type `int`) 
+```sql
+ALTER TABLE `article`
+  ADD COLUMN `category_id` INT(11) NOT NULL AFTER `image`;
+```
 
-Tu peux commencer par consulter le fichier public/index.php et public/pages/edit.php pour comprendre le fonctionnement de l'application.
+- Ensuite, il va falloir supprimer toutes les données de la table `article` (pour éviter les erreurs de clé étrangère)
 
-Lance toi ensuite sur l'ajout du CREATE, READ ONE ou DELETE, le code est fragmenté et indique à quel endroit il doit être adapté.
+- Une fois que c'est fait, il va falloir ajouter une clé étrangère sur la table `article` vers la table `category` :muscle:
+```sql
+ALTER TABLE `article`
+  ADD CONSTRAINT `fk_article_category` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`);
+```
 
-Une fois que tu en as terminé avec la ressources `article`, passe à la ressource `category`. 
-Tu verras que le code est très similaire dès lors que tu as un premier CRUD fonctionnel sur une ressource.
+- Enfin on peut remplir notre table `article` à nouveau en prenant soin d'avoir déjà créé des categories :smile:
 
-Je te souhaite bon courage et bon apprentissage ! :muscle:
+- La relation entre les 2 tables impliquent maintenant de gérer la création et l'édition d'un article en prenant en compte son nouveau champ `category_id` :wink:
+
+- La première chose à faire est de modifier le formulaire d'édition et de création d'article pour ajouter un champ `category_id` de type `select` qui va permettre de choisir la catégorie de l'article :muscle:
+
+- Ensuite, sur les pages d'édition et de création d'article, il va falloir modifier le traitement du formulaire pour prendre en compte le nouveau champ `category_id` :wink:
+
+- Des erreurs à ce stade ?? :scream: 
+  - Pourquoi ? :thinking:
+  - Indice : il faut ajuster 2 méthodes dans `article-model.php` pour ajouter la gestion du nouveau champ `category_id` :wink:
 
 ### Tips :
 
-> 👀 Il y a un template `_default.template.php` à la racine du dossier `pages` que tu peux utiliser pour la création de nouvelles pages, en utilisant le template tu gagneras du temps sur la mise en forme de tes pages. <br>
-> 👀 Lorsqu'on mélange du code HTML et du code PHP, il est préférable de respecter les bonnes pratiques d'indentation afin de faciliter la lisibilité du code. <br>
-> 👀 Quand on ouvre une balise PHP, on ferme la balise PHP à la fin de l'instruction. ```<?php echo 'ici du code php'; ?>``` <br>
-> 👀 Pour débugger du PHP on peut utiliser la fonction `var_dump()` ou `print_r()`.
+> 👀 Tu peux suivre le commentaire : `@05_relation` dans les fichiers pour t'aider dans la réalisation de cette fonctionnalité
 
 
-### Evolutions possibles du projet :
+### Teaser :
 
-- @404 : Gérer les erreurs 404 au cas où l'utilisateur tente d'accéder à une ressource qui n'existe pas.
-- @refacto : Factoriser le code : créer des fonctions pour les requêtes SQL et les redirections. (créer un fichier `article_model.php` dans un dossier `model` et y écrire les fonctions nécessaires à l'application tout en les appelant dans les fichiers adéquats)
-- @handleErrorDb : Gérer les erreurs SQL : afficher un message d'erreur en cas d'erreur SQL pour les ressource article. (try/catch)
-- @handleEditCreateForm : Gérer les fonctionnalités de création et de modification des articles à l'aide d'un seul et même formulaire.
-- @ajax : Gérer les fonctionnalités du CRUD article en AJAX.
-- @relation : Ajouter une relation entre le table `article` et `category` (clé étrangère) et ajuster la création, l'édition et la suppression des article en AJAX en prenant en compte la relation entre les deux tables.
+> :warning: Toujours des erreurs sur la page d'édition d'un article ? :scream:
+>
+> C'est normal, moi aussi :/ <br> En fait, le problème est que notre code commence à devenir un peu trop compliqué et que nous allons devoir encore faire du refactoring :muscle:
+>
+> Cette fois-ci on va essayer de penser notre architecture différemment pour éviter de trop se retrouver dans ce genre de situation ! :smile:
+>
+> Je t'invite à poursuivre vers la branche `06_mvc` pour découvrir une façon de structurer son code qui permet de mieux gérer les erreurs et de mieux séparer les responsabilités 🙌 

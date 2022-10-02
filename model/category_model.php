@@ -1,11 +1,22 @@
 <?php
-require '../../../.connec.php';
+
+function connectCategory() {
+    require __DIR__ . '/../.connec.php';
+    try {
+        $pdo = new PDO(DSN, USER, PASSWORD);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        return $pdo;
+    } catch (PDOException $e) {
+        throw $e;
+    }
+}
+
 /*
  * @create_category
  */
 function createCategory(string $name)
 {
-    $pdo = new PDO(DSN, USER, PASSWORD);
+    $pdo = connectCategory();
     try {
         $statement = $pdo->prepare("INSERT INTO category (name) VALUES (:name)");
         $statement->bindValue(":name", $name, PDO::PARAM_STR);
@@ -21,7 +32,7 @@ function createCategory(string $name)
  */
 function readAllCategories()
 {
-    $pdo = new PDO(DSN, USER, PASSWORD);
+    $pdo = connectCategory();
     try {
         $statement = $pdo->query("SELECT * FROM category");
         return $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -35,7 +46,7 @@ function readAllCategories()
  */
 function readOneCategory(int $id)
 {
-    $pdo = new PDO(DSN, USER, PASSWORD);
+    $pdo = connectCategory();
     try {
         $statement = $pdo->prepare('SELECT * FROM category WHERE id=:id');
         $statement->bindValue(':id', $id, PDO::PARAM_INT);
@@ -44,7 +55,6 @@ function readOneCategory(int $id)
     } catch (PDOException $e) {
         throw $e;
     }
-    
 }
 
 /*
@@ -52,7 +62,7 @@ function readOneCategory(int $id)
  */
 function updateCategory(int $id, string $name)
 {
-    $pdo = new PDO(DSN, USER, PASSWORD);
+    $pdo = connectCategory();
     try {
         $statement = $pdo->prepare("UPDATE category SET name=:name WHERE id=:id");
         $statement->bindValue(":name", $name, PDO::PARAM_STR);
@@ -69,7 +79,7 @@ function updateCategory(int $id, string $name)
  */
 function deleteCategory(int $id)
 {
-    $pdo = new PDO(DSN, USER, PASSWORD);
+    $pdo = connectCategory();
     try {
         $statement = $pdo->prepare("DELETE FROM category WHERE id=:id");
         $statement->bindValue(":id", $id, PDO::PARAM_INT);
