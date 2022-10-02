@@ -25,35 +25,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 if (empty($article)) {
     header('Location: /pages/404.php');
 }
-?>
-<div class="row mt-5">
-    <h1 class="text-center">Update Article # <?= $article->id ?></h1>
-    <div class="col-6 mx-auto">
-        <form method="POST">
-            <?php
-            if (!empty($error)) {
-                echo "<div class='alert alert-danger'>" . $error . "</div>";
-            }
-            ?>
-            <div class="mb-3">
-                <label for="title" class="form-label">Title</label>
-                <input type="text" class="form-control" id="title" name="title" value=<?= $article->title ?>>
-            </div>
-            <div class="mb-3">
-                <label for="content" class="form-label">Content</label>
-                <textarea class="form-control" id="content" rows="3" name="content"><?= $article->content ?></textarea>
-            </div>
-            <div class="mb-3">
-                <label for="image" class="form-label">Image</label>
-                <input type="text" class="form-control" id="image" name="image" value=<?= $article->image ?>>
-            </div>
-            <div class="mb-3 text-center">
-                <button type="submit" class="btn btn-primary btn-sm">Update</button>
-            </div>
-        </form>
-    </div>
-</div>
-<?php
+
+include_once('components/_form.php');
+
 include_once('../../layouts/container_end.php');
 include_once('../../layouts/scripts.php');
 include_once('../../layouts/body_end.php');

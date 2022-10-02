@@ -15,7 +15,7 @@ $pdo = $pdo = new PDO(DSN, USER, PASSWORD);
 
 $categories = $pdo->query("SELECT * FROM category")->fetchAll(PDO::FETCH_ASSOC);
 
-include_once '../../components/create_category.php';
+include_once 'components/create_category.php';
 ?>
 <div class="row mt-5">
     <?php foreach ($categories as $category) { ?>

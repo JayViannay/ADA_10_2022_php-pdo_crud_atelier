@@ -19,36 +19,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = "All fields are required !";
     }
 }
-?>
-<div class="row mt-5">
-    <h1 class="text-center">Create new Article</h1>
-    <div class="col-6 mx-auto">
-        <form method="POST" class="mt-5">
-            <?php
-                if (!empty($error)) {
-                    echo "<div class='alert alert-danger'>".$error."</div>";
-                }
-            ?>
-            <div class="mb-3">
-                <label for="title" class="form-label">Title *</label>
-                <input type="text" class="form-control" id="title" name="title">
-            </div>
-            <div class="mb-3">
-                <label for="content" class="form-label">Content *</label>
-                <textarea class="form-control" id="content" rows="3" name="content"></textarea>
-            </div>
-            <div class="mb-3">
-                <label for="image" class="form-label">Image *</label>
-                <input type="text" class="form-control" id="image" name="image">
-            </div>
-            <div class="text-end text-danger">* All fields are required</div>
-            <div class="mb-3 text-center">
-                <button type="submit" class="btn btn-primary btn-sm">Create</button>
-            </div>
-        </form>
-    </div>
-</div>
-<?php
+
+include_once('components/_form.php');
+
 include_once('../../layouts/container_end.php');
 include_once('../../layouts/scripts.php');
 include_once('../../layouts/body_end.php');

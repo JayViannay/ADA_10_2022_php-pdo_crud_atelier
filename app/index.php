@@ -12,7 +12,7 @@ include_once 'layouts/container_start.php';
 require '../model/article_model.php';
 $articles = readAll();
 
-include_once 'components/create_article.php';
+include_once 'pages/article/components/create_article.php';
 ?>
 <div class="row mt-5">
     <?php foreach ($articles as $article) { ?>
