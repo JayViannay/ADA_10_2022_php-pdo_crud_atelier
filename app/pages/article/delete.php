@@ -7,9 +7,12 @@
 
 require '../../../model/article_model.php';
 
+$article = "";
 if (isset($_GET['id']) && !empty($_GET['id'])) {
-    delete($_GET['id']);
-    
+    $article = readOne($_GET['id']);
+    if (empty($article)) {
+        header('Location: /pages/404.php');
+    }
+    delete($article->id);
     header('Location: /');
 }
-header('Location: /');

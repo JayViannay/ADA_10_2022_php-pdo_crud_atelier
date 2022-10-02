@@ -22,6 +22,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = "All fields are required !";
     }
 }
+if (empty($article)) {
+    header('Location: /pages/404.php');
+}
 ?>
 <div class="row mt-5">
     <h1 class="text-center">Update Article # <?= $article->id ?></h1>

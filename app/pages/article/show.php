@@ -15,6 +15,9 @@ $article = "";
 if (isset($_GET['id']) && !empty($_GET['id'])) {
     $article = readOne($_GET['id']);
 }
+if (empty($article)) {
+    header('Location: /pages/404.php');
+}
 ?>
 <div class="row mt-5">
     <div class="col-4 mx-auto">
