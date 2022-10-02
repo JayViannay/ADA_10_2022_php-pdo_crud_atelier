@@ -1,12 +1,12 @@
 <?php
-
+require __DIR__ . '/../.connec.php';
 /*
  * @create_article
  */
 function create(string $title, string $content, string $image)
 {
-    require '../../../.connec.php';
     $pdo = new PDO(DSN, USER, PASSWORD);
+    // @02_handleErrorDb
     try {
         $statement = $pdo->prepare("INSERT INTO article (title, content, image) VALUES (:title, :content, :image)");
         $statement->bindValue(":title", $title, PDO::PARAM_STR);
@@ -24,8 +24,8 @@ function create(string $title, string $content, string $image)
  */
 function readAll()
 {
-    require '../.connec.php';
     $pdo = new PDO(DSN, USER, PASSWORD);
+    // @02_handleErrorDb
     try {
         $statement = $pdo->query("SELECT * FROM article");
         return $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -39,8 +39,8 @@ function readAll()
  */
 function readOne(int $id)
 {
-    require '../../../.connec.php';
     $pdo = new PDO(DSN, USER, PASSWORD);
+    // @02_handleErrorDb
     try {
         $statement = $pdo->prepare('SELECT * FROM article WHERE id=:id');
         $statement->bindValue(':id', $id, PDO::PARAM_INT);
@@ -57,8 +57,8 @@ function readOne(int $id)
  */
 function update(int $id, string $title, string $content, string $image)
 {
-    require '../../../.connec.php';
     $pdo = new PDO(DSN, USER, PASSWORD);
+    // @02_handleErrorDb
     try {
         $statement = $pdo->prepare("UPDATE article SET title=:title, content=:content, image=:image WHERE id=:id");
         $statement->bindValue(":title", $title, PDO::PARAM_STR);
@@ -77,8 +77,8 @@ function update(int $id, string $title, string $content, string $image)
  */
 function delete(int $id)
 {
-    require '../../../.connec.php';
     $pdo = new PDO(DSN, USER, PASSWORD);
+    // @02_handleErrorDb
     try {
         $statement = $pdo->prepare("DELETE FROM article WHERE id=:id");
         $statement->bindValue(":id", $id, PDO::PARAM_INT);
