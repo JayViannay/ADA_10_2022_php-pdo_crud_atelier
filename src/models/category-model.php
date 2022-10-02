@@ -1,5 +1,5 @@
 <?php
-require '../../../.connec.php';
+
 /*
  * @create_category
  */
