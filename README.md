@@ -6,6 +6,15 @@ L'application est développée en PHP et utilise une base de données MySQL.
 
 L'atelier CRUD est un micro projet qui consiste à créer une application web de gestion d'articles et d'introduire les notions de CRUD (Create, Read, Update, Delete), PDO, SQL, OBJET, BDD relationnelle et de renforcer les notions de PHP.
 
+## Bon à savoir
+
+- Le répertoire github contient plusieurs branches pour chaque évolution possible de l'atelier :
+  - Chacune des branches contient un fichier README.md qui explique les étapes à suivre pour réaliser l'atelier.
+  - A chaque étape, il est possible de consulter le code source de la branche précédente pour voir les modifications à apporter.
+  - A chaque étape, il est possible de suivre des commentaires dédiés dans le code source pour voir les modifications à apporter.
+  - La première grande partie du projet est réalisée de la branche `start_here` à la branche `@06_mvc`.
+  - Une première correction pour l'étape `start_here` est disponible dans la branche `@00_correction`.
+  - La deuxième grande partie du projet est à réaliser à partir de la branche `@06_mvc`.
 
 ## Installation du projet
 
