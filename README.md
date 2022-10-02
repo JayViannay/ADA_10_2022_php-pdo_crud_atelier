@@ -4,7 +4,7 @@
 
 L'application est développée en PHP et utilise une base de données MySQL.
 
-L'atelier CRUD est un micro projet qui consiste à créer une application web de gestion d'articles et d'introduire les notions de CRUD (Create, Read, Update, Delete), PDO, SQL, OBJET, et de renforcer les notions de PHP.
+L'atelier CRUD est un micro projet qui consiste à créer une application web de gestion d'articles et d'introduire les notions de CRUD (Create, Read, Update, Delete), PDO, SQL, OBJET, BDD relationnelle et de renforcer les notions de PHP.
 
 
 ## Installation du projet
