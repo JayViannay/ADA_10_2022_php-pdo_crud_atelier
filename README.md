@@ -76,7 +76,7 @@ php -S localhost:8000 -t public
 ### Consignes : 
 
 - [ ] Créer une branche `feature/CRUD_users` à partir de la branche `mvc_architecture`
-- [ ] Ajuster la strucuture de la base de données pour ajouter la table `user` qui prendra en compte les champs suivants : `id INT AUTO_INCREMENT PRIMARY NOT NUL`, `email VARCHAR(255) NOT NULL`, `password VARCHAR(255) NOT NULL`, `role VARCHAR(8) NOT NULL DEFAULT 'ROLE_USER'`
+- [ ] Ajuster la structure de la base de données pour ajouter la table `user` qui prendra en compte les champs suivants : `id INT AUTO_INCREMENT PRIMARY NOT NUL`, `email VARCHAR(255) NOT NULL`, `password VARCHAR(255) NOT NULL`, `role VARCHAR(8) NOT NULL DEFAULT 'ROLE_USER'`
 - [ ] Ajouter les routes pour les users dans le fichier `routing.php`
 - [ ] Créer le modèle `user-model.php` dans le dossier `src/models` (ne pas hésiter à s'inspirer du modèle `article-model.php`)
 - [ ] Créer le contrôleur `user-controller.php` dans le dossier `src/controllers` (ne pas hésiter à s'inspirer du contrôleur `article-controller.php`)
