@@ -65,20 +65,28 @@ php -S localhost:8000 -t public
 
 ### Fonctionnalités à développer :
 
+- [ ] CRUD pour les users
+
+- CREATE USER : Création d'un user [http://localhost:8000/users/add](http://localhost:8000/users/create)
+- READ ALL ARTICLES : Affichage de la liste des users [http://localhost:8000/users](http://localhost:8000/users)
+- READ ONE USER : Affichage d'un user en détail [http://localhost:8000/users/show](http://localhost:8000/users/show)
+- UPDATE USER : edition d'un user [http://localhost:8000/users/edit](http://localhost:8000/users/edit)
+- DELETE USER : Suppression d'un user [http://localhost:8000/users/delete](http://localhost:8000/users/delete)
 
 ### Consignes : 
 
-
-### Tips :
-
-
-
+- [ ] Créer une branche `feature/CRUD_users` à partir de la branche `mvc_architecture`
+- [ ] Ajuster la strucuture de la base de données pour ajouter la table `user` qui prendra en compte les champs suivants : `id INT AUTO_INCREMENT PRIMARY NOT NUL`, `email VARCHAR(255) NOT NULL`, `password VARCHAR(255) NOT NULL`, `role VARCHAR(8) NOT NULL DEFAULT 'ROLE_USER'`
+- [ ] Ajouter les routes pour les users dans le fichier `routing.php`
+- [ ] Créer le modèle `user-model.php` dans le dossier `src/models` (ne pas hésiter à s'inspirer du modèle `article-model.php`)
+- [ ] Créer le contrôleur `user-controller.php` dans le dossier `src/controllers` (ne pas hésiter à s'inspirer du contrôleur `article-controller.php`)
+- [ ] Créer les vues pour les users dans le dossier `src/views` (ne pas hésiter à s'inspirer des vues `article` et à utiliser le `_default.template.php`à la racine du dossier views)
+- [ ] Tester les fonctionnalités de l'application en local depuis le navigateur
+- [ ] Une fois les fonctionnalités de l'application fonctionnelles, faire une pull request sur la branche `mvc_architecture` du projet (si tu n'as les droits tu peux m'envoyer une demande d'ajout au repo via slack en me précisant ton pseudo github et le lien vers le repo)
 
 ### Evolutions possibles du projet :
 
-- @404 : Gérer les erreurs 404 au cas où l'utilisateur tente d'accéder à une ressource qui n'existe pas.
-- @refacto : Factoriser le code : créer des fonctions pour les requêtes SQL et les redirections. (créer un fichier `article_model.php` dans un dossier `model` et y écrire les fonctions nécessaires à l'application tout en les appelant dans les fichiers adéquats)
-- @handleErrorDb : Gérer les erreurs SQL : afficher un message d'erreur en cas d'erreur SQL pour les ressource article. (try/catch)
-- @handleEditCreateForm : Gérer les fonctionnalités de création et de modification des articles à l'aide d'un seul et même formulaire.
-- @ajax : Gérer les fonctionnalités du CRUD article en AJAX.
-- @relation : Ajouter une relation entre le table `article` et `category` (clé étrangère) et ajuster la création, l'édition et la suppression des article en AJAX en prenant en compte la relation entre les deux tables.
+- [ ] Ajouter un système de register/login/logout pour les utilisateurs et hasher les mots de passe en base de données
+- [ ] Ajouter un système de commentaires pour les articles par les utilisateurs
+- [ ] Ajouter un système de filtre pour les articles
+- [ ] Ajouter un système de favoris entre les utilisateurs et les articles
