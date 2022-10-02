@@ -46,3 +46,15 @@ INSERT INTO `article` (`id`, `title`, `content`, `image`) VALUES
     (NULL, 'Auburn', 'Blanditiis doloremque natus aut aspernatur labore mollitia ad hic reiciendis temporibus.', 'https://via.placeholder.com/150'), 
     (NULL, 'Seoul', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae debitis fugiat vitae.', 'https://via.placeholder.com/150'), 
     (NULL, 'Gotham', 'Repellendus alias quaerat magni at labore non dignissimos animi ipsam nobis, aperiam.', 'https://via.placeholder.com/150');
+
+CREATE TABLE `category` (
+    `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `name` varchar(255) NOT NULL);
+
+-- --------------------------------------------------------
+-- AJOUT DE QUELQUES DONNÉES DANS LA TABLE `category` :
+
+INSERT INTO `category` (`id`, `name`) VALUES 
+    (NULL, 'Sport'), 
+    (NULL, 'Mode'), 
+    (NULL, 'Science');
