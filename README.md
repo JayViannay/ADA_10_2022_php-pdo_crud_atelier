@@ -1,4 +1,4 @@
-# ATELIER CRUD - PHP/PDO Architecture MVC (Model Vue Controller)
+# ATELIER CRUD - @06 Architecture MVC (Model Vue Controller)
 
 ## Présentation
 
@@ -22,9 +22,9 @@ Dans le dossier `src` se trouve le dossier `controllers` qui contient les contr�
 git clone git@github.com:JennyViannay/ADA_10_2022_php-pdo_crud_atelier.git atelier-crud-php-pdo
 ```
 
-### Se positionner sur la branche `mvc_architecture`
+### Se positionner sur la branche `@06_mvc`
 ```bash
-git checkout mvc_architecture
+git checkout @06_mvc
 ```
 
 ### Configuration de la base de données
