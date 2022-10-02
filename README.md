@@ -88,11 +88,10 @@ Je te souhaite bon courage et bon apprentissage ! :muscle:
 
 ### Evolutions possibles du projet :
 
-- @404 : Gérer les erreurs 404 au cas où l'utilisateur tente d'accéder à une ressource qui n'existe pas.
-- @refacto : Factoriser le code 
+- @03_404 : Gérer les erreurs 404 au cas où l'utilisateur tente d'accéder à une ressource qui n'existe pas.
+- @01_refacto : Factoriser le code 
   - créer des fonctions pour les requêtes SQL et les redirections. (créer un fichier `model_article.php` dans un dossier `model` et y écrire les fonctions nécessaires à l'application tout en les appelant dans les fichiers adéquats)
-- @handleErrorDb : Gérer les erreurs SQL 
+- @02_handleErrorDb : Gérer les erreurs SQL 
   - afficher un message d'erreur en cas d'erreur SQL pour la ressource article. (try/catch)
-- @handleEditCreateForm : Gérer les fonctionnalités de création et de modification des articles à l'aide d'un seul et même formulaire.
-- @ajax : Gérer les fonctionnalités du CRUD article en AJAX.
-- @relation : Ajouter une relation entre le table `article` et `category` (clé étrangère) et ajuster la création, l'édition et la suppression des articles en AJAX en prenant en compte la relation entre les deux tables.
+- @04_handleEditCreateForm : Gérer les fonctionnalités de création et de modification des articles à l'aide d'un seul et même formulaire.
+- @05_relation : Ajouter une relation entre le table `article` et `category` (clé étrangère `category_id` dans la table `article`) et ajuster la création et l'édition des articles en prenant en compte la relation entre les deux tables.
