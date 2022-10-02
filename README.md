@@ -1,89 +1,33 @@
-# ATELIER CRUD - PHP/PDO
+# ATELIER CRUD - @04_handleEditCreateForm
 
 ## Présentation
 
-L'application est développée en PHP et utilise une base de données MySQL.
-
-L'atelier CRUD est un micro projet qui consiste à créer une application web de gestion d'articles et d'introduire les notions de CRUD (Create, Read, Update, Delete), PDO, SQL, OBJET, et de renforcer les notions de PHP.
-
-
-## Installation du projet
-
->##### Prérequis :
->- PHP >= 7.4
->- PDO DRIVER ON
->- MySQL >= 5.7
-
-### Cloner le projet
-```bash
-git clone git@github.com:JennyViannay/ADA_10_2022_php-pdo_crud_atelier.git atelier-crud-php-pdo
-```
-
-### Configuration de la base de données
-
-- Créer une base de données MySQL depuis le fichier `atelier_crud.sql` situé à la racine du projet.
-
-- Créer un fichier `.connec.php` à la racine du projet et y renseigner les informations de connexion à la base de données comme dans l'exemple du fichier `.connec.php.dist`.
-
-
-### Lancer le projet
-
-- Lancer le serveur PHP en ligne de commande depuis la racine du dossier 
-
-```bash
-php -S localhost:8000 -t app
-```
-
->💡 L'attribut `-t` permet de spécifier le dossier racine dans lequel se >trouve l'application, dans notre cas il s'agit du dossier `app`):
->[WebServer PHP doc](https://www.php.net/manual/fr/features.commandline.webserver.php)
-
-- Ouvrir l'application dans un navigateur à l'adresse suivante: [http://localhost:8000](http://localhost:8000)
-
-### Fonctionnalités présentes dans l'application :
-
-- READ ALL : Affichage de la liste des articles [http://localhost:8000](http://localhost:8000)
-- UPDATE : edition d'un article [http://localhost:8000/pages/edit.php?id=1](http://localhost:8000/pages/edit.php?id=1)
-
-
-### Fonctionnalités à développer :
-
-- CREATE : Création d'un article [http://localhost:8000/pages/create.php](http://localhost:8000/pages/create.php)
-- READ ONE : Affichage d'un article en détail [http://localhost:8000/pages/show.php?id=1](http://localhost:8000/pages/article.php?id=1)
-- DELETE : Suppression d'un article [http://localhost:8000/pages/delete.php?id=1](http://localhost:8000/pages/delete.php?id=1)
-
-- Administration d'une nouvelle ressource : `category` (catégorie d'article)
-
-```sql
-CREATE TABLE `category` (
-    `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `name` varchar(255) NOT NULL);
-```
-
-- CREATE : Création d'une catégorie [http://localhost:8000/pages/category/create.php](http://localhost:8000/pages/category/create.php)
-- READ ALL : Affichage de la liste des catégories [http://localhost:8000/pages/category/index.php](http://localhost:8000/pages/category/index.php)
-- UPDATE : edition d'une catégorie [http://localhost:8000/pages/category/edit.php?id=1](http://localhost:8000/pages/category/edit.php?id=1)
-- DELETE : Suppression d'une catégorie [http://localhost:8000/pages/category/delete.php?id=1](http://localhost:8000/pages/category/delete.php?id=1)
-
+La encore, il s'agit de faire évoluer notre application pour qu'elle puisse gérer la modification et la création d'un article avec un seul formulaire.
+C'est encore une fois une bonne pratique de repérer le code qui se repete et de le factoriser.
 
 ### Consignes : 
-En t'aidant des commentaires présents dans le code source de l'application, dévoloppe les fonctionnalités manquantes.
-Pense à bien respecter les bonnes pratiques de développement et de programmation.
+La première étape consiste à isoler notre formulaire dans un composant dédié.
+Pour cela, nous allons créer un nouveau dossier `components` à l'interieur de `pages/article` dans lequel nous allons créer un nouveau composant `_form.php_`.
+Ce composant va contenir le code HTML du formulaire que nous allons récupérer depuis notre fichier `edit.php`.
 
-Tu peux commencer par consulter le fichier public/index.php et public/pages/edit.php pour comprendre le fonctionnement de l'application.
+Quelques ajustements s'imposent :
 
-Lance toi ensuite sur l'ajout du CREATE, READ ONE ou DELETE, le code est fragmenté et indique à quel endroit il doit être adapté.
+Si nous partons du principe que nous utilisons le même formulaire pour la création et la modification, nous devons pouvoir lui passer en paramètre l'article à modifier mais si nous sommes en création, nous n'avons pas d'article à passer en paramètre.
 
-Une fois que tu en as terminé avec la ressources `article`, passe à la ressource `category`. 
-Tu verras que le code est très similaire dès lors que tu as un premier CRUD fonctionnel sur une ressource.
+Pour cela nous pouvons utiliser la fonction empty() qui retourne true si une variable est vide et false si elle contient une valeur.
 
-Je te souhaite bon courage et bon apprentissage ! :muscle:
+De plus, nous pouvons utiliser le ternaire pour gérer si nous sommes en création ou en modification.
+
+```php
+// si l'article n'est pas vide, on affiche son id sinon on affiche une chaine vide
+<?= !empty($article) ? $article->id : '' ?>
+```
+
+Ainsi, nous pouvons utiliser le même formulaire pour la création et la modification en ajuster la valeur du bouton submit ainsi que le titre de la page.
 
 ### Tips :
 
-> 👀 Il y a un template `_default.template.php` à la racine du dossier `pages` que tu peux utiliser pour la création de nouvelles pages, en utilisant le template tu gagneras du temps sur la mise en forme de tes pages. <br>
-> 👀 Lorsqu'on mélange du code HTML et du code PHP, il est préférable de respecter les bonnes pratiques d'indentation afin de faciliter la lisibilité du code. <br>
-> 👀 Quand on ouvre une balise PHP, on ferme la balise PHP à la fin de l'instruction. ```<?php echo 'ici du code php'; ?>``` <br>
-> 👀 Pour débugger du PHP on peut utiliser la fonction `var_dump()` ou `print_r()`.
+> 👀 tu peux suivre le commentaire @04_handleEditCreateForm pour te guider dans le code.
 
 
 ### Evolutions possibles du projet :

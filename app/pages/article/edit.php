@@ -26,6 +26,7 @@ if (empty($article)) {
     header('Location: /pages/404.php');
 }
 
+// @04_handleEditCreateForm
 include_once('components/_form.php');
 
 include_once('../../layouts/container_end.php');
