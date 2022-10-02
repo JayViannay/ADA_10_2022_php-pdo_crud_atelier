@@ -1,10 +1,4 @@
 <?php
-/*
- * @ PAGE QUI LISTE TOUTES LES CATEGORIES
- * Path: app/pages/category/index.php
- * URL: '/pages/category/index.php'
- */
-
 require __DIR__.'/../layouts/head.php';
 require __DIR__.'/../layouts/body_start.php';
 require __DIR__.'/../layouts/container_start.php';

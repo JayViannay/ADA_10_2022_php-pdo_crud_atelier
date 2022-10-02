@@ -1,10 +1,4 @@
 <?php
-/*
- * @ PAGE QUI AFFICHE UN ARTICLE EN DETAIL
- * Path: public/pages/article/read.php
- * URL: '/pages/article/read.php?id={id}'
- */
-
 require __DIR__.'/../layouts/head.php';
 require __DIR__.'/../layouts/body_start.php';
 require __DIR__.'/../layouts/container_start.php';
