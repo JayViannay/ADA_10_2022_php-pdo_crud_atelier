@@ -73,10 +73,10 @@ Tu peux commencer par consulter le fichier app/index.php et app/pages/article/ed
 
 Lance toi ensuite sur l'ajout du CREATE, READ ONE ou DELETE, le code est fragmenté et indique à quel endroit il doit être adapté.
 
-Une fois que tu en as terminé avec la ressources `article`, passe à la ressource `category`. 
+Une fois que tu en as terminé avec la ressource `article`, passe à la ressource `category`. 
 Tu verras que le code est très similaire dès lors que tu as un premier CRUD fonctionnel sur une ressource.
 
-Je te souhaite bon courage et bon apprentissage ! :muscle:
+Bon courage et bon apprentissage ! :muscle:
 
 ### Tips :
 
