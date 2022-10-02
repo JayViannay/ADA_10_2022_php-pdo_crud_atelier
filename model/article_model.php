@@ -7,21 +7,31 @@ function create(string $title, string $content, string $image)
 {
     require '../../../.connec.php';
     $pdo = new PDO(DSN, USER, PASSWORD);
-    $statement = $pdo->prepare("INSERT INTO article (title, content, image) VALUES (:title, :content, :image)");
-    $statement->bindValue(":title", $title, PDO::PARAM_STR);
-    $statement->bindValue(":content", $content, PDO::PARAM_STR);
-    $statement->bindValue(":image", $image, PDO::PARAM_STR);
-    $statement->execute();
+    try {
+        $statement = $pdo->prepare("INSERT INTO article (title, content, image) VALUES (:title, :content, :image)");
+        $statement->bindValue(":title", $title, PDO::PARAM_STR);
+        $statement->bindValue(":content", $content, PDO::PARAM_STR);
+        $statement->bindValue(":image", $image, PDO::PARAM_STR);
+        $statement->execute();
+        return $pdo->lastInsertId();
+    } catch (PDOException $e) {
+        throw $e;
+    }
 }
 
 /*
- * @find_all articles
+ * @find_all articles []
  */
 function readAll()
 {
     require '../.connec.php';
     $pdo = new PDO(DSN, USER, PASSWORD);
-    return $pdo->query('SELECT * FROM article')->fetchAll();
+    try {
+        $statement = $pdo->query("SELECT * FROM article");
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        throw $e;
+    }
 }
 
 /*
@@ -31,10 +41,15 @@ function readOne(int $id)
 {
     require '../../../.connec.php';
     $pdo = new PDO(DSN, USER, PASSWORD);
-    $statement = $pdo->prepare('SELECT * FROM article WHERE id=:id');
-    $statement->bindValue(':id', $id, PDO::PARAM_INT);
-    $statement->execute();
-    return $statement->fetch(PDO::FETCH_OBJ);
+    try {
+        $statement = $pdo->prepare('SELECT * FROM article WHERE id=:id');
+        $statement->bindValue(':id', $id, PDO::PARAM_INT);
+        $statement->execute();
+        return $statement->fetch(PDO::FETCH_OBJ);
+    } catch (PDOException $e) {
+        throw $e;
+    }
+    
 }
 
 /*
@@ -44,12 +59,17 @@ function update(int $id, string $title, string $content, string $image)
 {
     require '../../../.connec.php';
     $pdo = new PDO(DSN, USER, PASSWORD);
-    $statement = $pdo->prepare("UPDATE article SET title=:title, content=:content, image=:image WHERE id=:id");
-    $statement->bindValue(":title", $title, PDO::PARAM_STR);
-    $statement->bindValue(":content", $content, PDO::PARAM_STR);
-    $statement->bindValue(":image", $image, PDO::PARAM_STR);
-    $statement->bindValue(":id", $id, PDO::PARAM_STR);
-    $statement->execute();
+    try {
+        $statement = $pdo->prepare("UPDATE article SET title=:title, content=:content, image=:image WHERE id=:id");
+        $statement->bindValue(":title", $title, PDO::PARAM_STR);
+        $statement->bindValue(":content", $content, PDO::PARAM_STR);
+        $statement->bindValue(":image", $image, PDO::PARAM_STR);
+        $statement->bindValue(":id", $id, PDO::PARAM_INT);
+        $statement->execute();
+        return $statement->rowCount();
+    } catch (PDOException $e) {
+        throw $e;
+    }
 }
 
 /*
@@ -59,7 +79,12 @@ function delete(int $id)
 {
     require '../../../.connec.php';
     $pdo = new PDO(DSN, USER, PASSWORD);
-    $statement = $pdo->prepare("DELETE FROM article WHERE id=:id");
-    $statement->bindValue(':id', $id, PDO::PARAM_INT);
-    $statement->execute();
+    try {
+        $statement = $pdo->prepare("DELETE FROM article WHERE id=:id");
+        $statement->bindValue(":id", $id, PDO::PARAM_INT);
+        $statement->execute();
+        return $statement->rowCount();
+    } catch (PDOException $e) {
+        throw $e;
+    }
 }
