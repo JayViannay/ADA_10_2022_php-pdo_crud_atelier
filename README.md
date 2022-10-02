@@ -1,11 +1,14 @@
-# ATELIER CRUD - PHP/PDO
+# ATELIER CRUD - PHP/PDO Architecture MVC (Model Vue Controller)
 
 ## Présentation
 
-L'application est développée en PHP et utilise une base de données MySQL.
+L'architecture MVC (Model Vue Controller) est une architecture logicielle qui sépare les données de l'interface utilisateur. Elle est utilisée dans les applications web pour séparer les différentes responsabilités d'une application web.
 
-L'atelier CRUD est un micro projet qui consiste à créer une application web de gestion d'articles et d'introduire les notions de CRUD (Create, Read, Update, Delete), PDO, SQL, OBJET, et de renforcer les notions de PHP.
+Dans cette architecture, les données sont gérées par les modèles, l'interface utilisateur par les vues et la logique de l'application par les contrôleurs.
 
+Dans le dossier `public` se trouve le fichier `index.php` qui est le point d'entrée de l'application. Il va charger le fichier `.connec.php` qui contient nos accès à la base de données. Il va ensuite charger le fichier `routing.php` qui va définir les routes de l'application.
+
+Dans le dossier `src` se trouve le dossier `controllers` qui contient les contrôleurs de l'application, le dossier `models` où se trouve les modèles de l'application ainsi que le dossier `views` dans lequel il y a les vues de l'application.
 
 ## Installation du projet
 
@@ -17,6 +20,11 @@ L'atelier CRUD est un micro projet qui consiste à créer une application web de
 ### Cloner le projet
 ```bash
 git clone git@github.com:JennyViannay/ADA_10_2022_php-pdo_crud_atelier.git atelier-crud-php-pdo
+```
+
+### Se positionner sur la branche `mvc_architecture`
+```bash
+git checkout mvc_architecture
 ```
 
 ### Configuration de la base de données
@@ -31,7 +39,7 @@ git clone git@github.com:JennyViannay/ADA_10_2022_php-pdo_crud_atelier.git ateli
 - Lancer le serveur PHP en ligne de commande depuis la racine du dossier 
 
 ```bash
-php -S localhost:8000 -t app
+php -S localhost:8000 -t public
 ```
 
 >💡 L'attribut `-t` permet de spécifier le dossier racine dans lequel se >trouve l'application, dans notre cas il s'agit du dossier `app`):
@@ -41,49 +49,29 @@ php -S localhost:8000 -t app
 
 ### Fonctionnalités présentes dans l'application :
 
-- READ ALL : Affichage de la liste des articles [http://localhost:8000](http://localhost:8000)
-- UPDATE : edition d'un article [http://localhost:8000/pages/edit.php?id=1](http://localhost:8000/pages/edit.php?id=1)
+- Page d'accueil : [http://localhost:8000](http://localhost:8000)
+
+- CREATE ARTICLE : Création d'un article [http://localhost:8000/articles/add](http://localhost:8000/articles/create)
+- READ ALL ARTICLES : Affichage de la liste des articles [http://localhost:8000/articles](http://localhost:8000/articles)
+- READ ONE ARTICLE : Affichage d'un article en détail [http://localhost:8000/articles/show?id=1](http://localhost:8000/articles/show?id=1)
+- UPDATE ARTICLE : edition d'un article [http://localhost:8000/articles/edit?id=1](http://localhost:8000/articles/edit?id=1)
+- DELETE ARTICLE : Suppression d'un article [http://localhost:8000/articles/delete?id=1](http://localhost:8000/articles/delete?id=1)
+
+- CREATE CATEGORY : Création d'un article [http://localhost:8000/categories/add](http://localhost:8000/categories/create)
+- READ ALL CATEGORIES : Affichage de la liste des articles [http://localhost:8000/categories](http://localhost:8000/categories)
+- UPDATE CATEGORY : edition d'un article [http://localhost:8000/categories/edit?id=1](http://localhost:8000/categories/edit?id=1)
+- DELETE CATEGORY : Suppression d'un article [http://localhost:8000/categories/delete?id=1](http://localhost:8000/categories/delete?id=1)
 
 
 ### Fonctionnalités à développer :
 
-- CREATE : Création d'un article [http://localhost:8000/pages/create.php](http://localhost:8000/pages/create.php)
-- READ ONE : Affichage d'un article en détail [http://localhost:8000/pages/show.php?id=1](http://localhost:8000/pages/article.php?id=1)
-- DELETE : Suppression d'un article [http://localhost:8000/pages/delete.php?id=1](http://localhost:8000/pages/delete.php?id=1)
-
-- Administration d'une nouvelle ressource : `category` (catégorie d'article)
-
-```sql
-CREATE TABLE `category` (
-    `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `name` varchar(255) NOT NULL);
-```
-
-- CREATE : Création d'une catégorie [http://localhost:8000/pages/category/create.php](http://localhost:8000/pages/category/create.php)
-- READ ALL : Affichage de la liste des catégories [http://localhost:8000/pages/category/index.php](http://localhost:8000/pages/category/index.php)
-- UPDATE : edition d'une catégorie [http://localhost:8000/pages/category/edit.php?id=1](http://localhost:8000/pages/category/edit.php?id=1)
-- DELETE : Suppression d'une catégorie [http://localhost:8000/pages/category/delete.php?id=1](http://localhost:8000/pages/category/delete.php?id=1)
-
 
 ### Consignes : 
-En t'aidant des commentaires présents dans le code source de l'application, dévoloppe les fonctionnalités manquantes.
-Pense à bien respecter les bonnes pratiques de développement et de programmation.
 
-Tu peux commencer par consulter le fichier public/index.php et public/pages/edit.php pour comprendre le fonctionnement de l'application.
-
-Lance toi ensuite sur l'ajout du CREATE, READ ONE ou DELETE, le code est fragmenté et indique à quel endroit il doit être adapté.
-
-Une fois que tu en as terminé avec la ressources `article`, passe à la ressource `category`. 
-Tu verras que le code est très similaire dès lors que tu as un premier CRUD fonctionnel sur une ressource.
-
-Je te souhaite bon courage et bon apprentissage ! :muscle:
 
 ### Tips :
 
-> 👀 Il y a un template `_default.template.php` à la racine du dossier `pages` que tu peux utiliser pour la création de nouvelles pages, en utilisant le template tu gagneras du temps sur la mise en forme de tes pages. <br>
-> 👀 Lorsqu'on mélange du code HTML et du code PHP, il est préférable de respecter les bonnes pratiques d'indentation afin de faciliter la lisibilité du code. <br>
-> 👀 Quand on ouvre une balise PHP, on ferme la balise PHP à la fin de l'instruction. ```<?php echo 'ici du code php'; ?>``` <br>
-> 👀 Pour débugger du PHP on peut utiliser la fonction `var_dump()` ou `print_r()`.
+
 
 
 ### Evolutions possibles du projet :

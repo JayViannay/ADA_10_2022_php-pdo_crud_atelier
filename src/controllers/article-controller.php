@@ -1,13 +1,27 @@
 <?php 
 
+// Ce controller contient les fonctions qui permettent de gérer les urls/ les routes du crud Article
+
+// Dépendences du controller article vers le article-model.php du dossier models
+// pour accéder aux methodes : readAllArticles, readOneArticle, createArticle, updateArticle, deleteArticle
 require __DIR__ . '/../models/article-model.php';
 
+/**
+ * Affiche la liste des articles
+ * @URL("/articles")
+ * @render views/articles/index.php
+ */
 function listArticles(): void
 {
     $articles = readAllArticles();
     require __DIR__ . '/../views/articles/index.php';
 }
 
+/**
+ * Affiche le formulaire de création d'un article
+ * @URL("/articles/add")
+ * @render views/articles/create.php
+ */
 function newArticle(): void
 {
     $error = "";
@@ -24,12 +38,24 @@ function newArticle(): void
     require __DIR__ . '/../views/articles/create.php';
 }
 
+/**
+ * Affiche un article en détail
+ * @URL("/articles/edit")
+ * @param int $id
+ * @render views/articles/show.php
+ */
 function showArticle(int $id): void
 {
     $article = readOneArticle($id);
     require __DIR__ . '/../views/articles/show.php';
 }
 
+/**
+ * Affiche le formulaire de modification d'un article
+ * @URL("/articles/edit")
+ * @param int $id
+ * @render views/articles/edit.php
+ */
 function editArticle(int $id): void
 {
     $error = "";
@@ -47,6 +73,11 @@ function editArticle(int $id): void
     require __DIR__ . '/../views/articles/edit.php';
 }
 
+/**
+ * Supprime un article
+ * @URL("/articles/delete")
+ * @param int $id
+ */
 function removeArticle(int $id): void
 {
     deleteArticle($id);
