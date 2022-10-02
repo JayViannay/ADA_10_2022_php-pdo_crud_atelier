@@ -95,3 +95,4 @@ Je te souhaite bon courage et bon apprentissage ! :muscle:
   - Lever une exception PDO en cas d'erreur SQL pour la ressource article. (try/catch)
 - @04_handleEditCreateForm : Gérer les fonctionnalités de création et de modification des articles à l'aide d'un seul et même formulaire.
 - @05_relation : Ajouter une relation entre le table `article` et `category` (clé étrangère `category_id` dans la table `article`) et ajuster la création et l'édition des articles en prenant en compte la relation entre les deux tables.
+- @06_mvc : Refactoriser le code en utilisant le pattern MVC (Model View Controller)
