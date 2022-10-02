@@ -17,10 +17,20 @@
                 Ajout d'un nouveau champs select pour le choix d'un categorie
             -->
                 <select class="form-select" name="category_id" id="category_id">
-                    <option selected>Select a category</option>
+                    <!-- @05_relation ajustement de la liste des categories -->
+                    <!-- Si $article existe on selectionne par défault la catégorie de celui ci -->
+                    <?php if (isset($article)) { ?>
+                        <option selected value="<?= $article->category_id ?>"><?= $article->category_name ?></option>
+                    <?php } else { ?>
+                    <!-- Sinon on affiche un message pour selectionner une catégorie -->
+                        <option selected>Select a category</option>
+                    <?php } ?>
                     <!-- Boucle sur les categories pour afficher les options -->
                     <?php foreach ($categories as $category) : ?>
+                        <!-- @05_relation on affiche pas la catégorie de l'article dans les options suivantes -->
+                        <?php if (isset($article) && $article->category_id != $category['id']) : ?>
                         <option value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
+                        <?php endif; ?>
                     <?php endforeach; ?>
                 </select>
             </div>

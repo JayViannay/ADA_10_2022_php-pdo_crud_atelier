@@ -26,6 +26,8 @@ if (empty($article)) {
     <div class="col-8">
         <h5 class="card-title"><?= $article->title ?></h5>
         <p class="card-text"><?= $article->content ?></p>
+        <!-- @05_relation Affichage du nom de la catégorie de l'article -->
+        <p class="card-text"><span class="badge text-bg-secondary"><?= $article->category_name ?></span></p>
         <a href="/" class="btn btn-dark btn-sm mx-auto"><i class="fa-solid fa-rotate-left"></i> return</a>
         <a href=<?="edit.php?id=".$article->id ?> class="btn btn-success btn-sm"><i class="fa-solid fa-pen"></i></a>
         <a href=<?= "delete.php?id=".$article->id ?> class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></a>

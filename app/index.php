@@ -22,6 +22,8 @@ include_once 'pages/article/components/create_article.php';
                 <div class="card-body">
                     <h5 class="card-title"><?= $article['title'] ?></h5>
                     <p class="card-text"><?= $article['content'] ?></p>
+                    <!-- @05_relation Affichage du nom de la catégorie de l'article -->
+                    <p class="card-text"><span class="badge text-bg-secondary"><?= $article['category_name'] ?></span></p>
                     <a href=<?="pages/article/show.php?id=".$article['id'] ?> class="btn btn-dark btn-sm mx-auto"><i class="fa-solid fa-eye"></i> read</a>
                     <a href=<?="pages/article/edit.php?id=".$article['id'] ?> class="btn btn-success btn-sm"><i class="fa-solid fa-pen"></i></a>
                     <a href=<?= "pages/article/delete.php?id=".$article['id'] ?> class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></a>

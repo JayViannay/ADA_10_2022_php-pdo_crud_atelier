@@ -38,7 +38,8 @@ function readAllArticles()
 {
     $pdo = connectArticle();
     try {
-        $statement = $pdo->query("SELECT * FROM article");
+        // @05_relation Ajout de la jointure sur la table category pour récupérer le nom de la catégorie pour chaque article
+        $statement = $pdo->query("SELECT article.id, article.title, article.content, article.image, article.category_id, category.name as category_name FROM article JOIN category ON article.category_id = category.id");
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
         throw $e;
@@ -52,7 +53,8 @@ function readOneArticle(int $id)
 {
     $pdo = connectArticle();
     try {
-        $statement = $pdo->prepare('SELECT * FROM article WHERE id=:id');
+        // @05_relation Ajout de la jointure sur la table category pour récupérer le nom de la catégorie pour chaque article
+        $statement = $pdo->prepare('SELECT article.id, article.title, article.content, article.image, article.category_id, category.name as category_name FROM article JOIN category ON article.category_id = category.id WHERE article.id=:id');
         $statement->bindValue(':id', $id, PDO::PARAM_INT);
         $statement->execute();
         return $statement->fetch(PDO::FETCH_OBJ);
