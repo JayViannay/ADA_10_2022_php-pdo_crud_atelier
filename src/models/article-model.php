@@ -26,7 +26,7 @@ function readAllArticles()
 {
     $pdo = new PDO(DSN, USER, PASSWORD);
     try {
-        $statement = $pdo->query("SELECT * FROM article");
+        $statement = $pdo->query("SELECT article.id, article.title, article.content, article.image, article.category_id, category.name as category_name FROM article JOIN category ON article.category_id = category.id");
         return $statement->fetchAll(PDO::FETCH_ASSOC);
     } catch (PDOException $e) {
         throw $e;
@@ -40,7 +40,7 @@ function readOneArticle(int $id)
 {
     $pdo = new PDO(DSN, USER, PASSWORD);
     try {
-        $statement = $pdo->prepare('SELECT * FROM article WHERE id=:id');
+        $statement = $pdo->prepare('SELECT article.id, article.title, article.content, article.image, article.category_id, category.name as category_name FROM article JOIN category ON article.category_id = category.id WHERE article.id=:id');
         $statement->bindValue(':id', $id, PDO::PARAM_INT);
         $statement->execute();
         return $statement->fetch(PDO::FETCH_OBJ);

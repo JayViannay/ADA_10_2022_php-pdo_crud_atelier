@@ -13,9 +13,15 @@
             </div>
             <div class="mb-3">
                 <select class="form-select" name="category_id" id="category_id">
-                    <option selected>Select a category</option>
+                    <?php if (isset($article)) { ?>
+                        <option selected value="<?= $article->category_id ?>"><?= $article->category_name ?></option>
+                    <?php } else { ?>
+                        <option selected>Select a category</option>
+                    <?php } ?>
                     <?php foreach ($categories as $category) : ?>
-                        <option value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
+                        <?php if (isset($article) && $article->category_id != $category['id']) : ?>
+                            <option value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
+                        <?php endif; ?>
                     <?php endforeach; ?>
                 </select>
             </div>

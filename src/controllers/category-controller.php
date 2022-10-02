@@ -29,7 +29,7 @@ function newCategory(): void
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!empty($_POST['name'])) {
             createCategory($_POST['name']);
-            header('Location: /');
+            header('Location: /categories');
         } else {
             $error = "All fields are required !";
         }
@@ -51,7 +51,7 @@ function editCategory(int $id): void
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!empty($_POST['name'])) {
             updateCategory($id, $_POST['name']);
-            header('Location: /');
+            header('Location: /categories');
         } else {
             $error = "All fields are required !";
         }
@@ -67,5 +67,5 @@ function editCategory(int $id): void
 function removeCategory(int $id): void
 {
     deleteCategory($id);
-    header('Location: /');
+    header('Location: /categories');
 }

@@ -30,7 +30,7 @@ function newArticle(): void
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['image']) && !empty($_POST['category_id'])) {
             createArticle($_POST['title'], $_POST['content'], $_POST['image'], $_POST['category_id']);
-            header('Location: /');
+            header('Location: /articles');
         } else {
             $error = "All fields are required !";
         }
@@ -65,7 +65,7 @@ function editArticle(int $id): void
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (!empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['image']) && !empty($_POST['category_id'])) {
             updateArticle($id, $_POST['title'], $_POST['content'], $_POST['image'], intval($_POST['category_id']));
-            header('Location: /');
+            header('Location: /articles');
         } else {
             $error = "All fields are required !";
         }
@@ -81,5 +81,5 @@ function editArticle(int $id): void
 function removeArticle(int $id): void
 {
     deleteArticle($id);
-    header('Location: /');
+    header('Location: /articles');
 }
