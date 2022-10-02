@@ -8,11 +8,13 @@ include_once '../../layouts/head.php';
 include_once '../../layouts/body_start.php';
 include_once '../../layouts/container_start.php';
 
+// @01_refacto
 require '../../../model/article_model.php';
 
 $error = "";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['image'])) {
+        // @01_refacto
         create($_POST['title'], $_POST['content'], $_POST['image']);
         header('Location: /');
     } else {

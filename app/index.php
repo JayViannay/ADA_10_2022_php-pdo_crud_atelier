@@ -9,6 +9,7 @@ include_once 'layouts/head.php';
 include_once 'layouts/body_start.php';
 include_once 'layouts/container_start.php';
 
+// @01_refacto
 require '../model/article_model.php';
 $articles = readAll();
 

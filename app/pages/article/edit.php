@@ -8,14 +8,17 @@ include_once '../../layouts/head.php';
 include_once '../../layouts/body_start.php';
 include_once '../../layouts/container_start.php';
 
+// @01_refacto
 require '../../../model/article_model.php';
 $article = "";
 
 if (isset($_GET['id']) && !empty($_GET['id'])) {
+    // @01_refacto
     $article = readOne($_GET['id']);
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['image'])) {
+        // @01_refacto
         update($article->id, $_POST['title'], $_POST['content'], $_POST['image']);
         header('Location: /');
     } else {
