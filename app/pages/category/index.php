@@ -5,15 +5,13 @@
  * URL: '/pages/category/index.php'
  */
 
-require '../../../.connec.php';
-
 include_once '../../layouts/head.php';
 include_once '../../layouts/body_start.php';
 include_once '../../layouts/container_start.php';
 
-$pdo = $pdo = new PDO(DSN, USER, PASSWORD);
+require '../../../model/category_model.php';
 
-$categories = $pdo->query("SELECT * FROM category")->fetchAll(PDO::FETCH_ASSOC);
+$categories = readAllCategories();
 
 include_once 'components/create_category.php';
 ?>

@@ -40,9 +40,35 @@ CREATE TABLE `article` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
+-- CRÉATION DE LA TABLE `category` :
+
+CREATE TABLE `category` (
+  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+-- CREATION DE LA RELATION MANY TO ONE ENTRE LES TABLES `article` ET `category` :
+
+ALTER TABLE `article`
+  ADD COLUMN `category_id` INT(11) NOT NULL AFTER `image`;
+
+ALTER TABLE `article`
+  ADD CONSTRAINT `fk_article_category` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`);
+
+
+-- --------------------------------------------------------
+-- AJOUT DE QUELQUES DONNÉES DANS LA TABLE `category` :
+
+INSERT INTO `category` (`id`, `name`) VALUES 
+    (NULL, 'Vestibulum'), 
+    (NULL, 'Vivamus'), 
+    (NULL, 'Suspendisse');
+
+-- --------------------------------------------------------
 -- AJOUT DE QUELQUES DONNÉES DANS LA TABLE `article` :
 
-INSERT INTO `article` (`id`, `title`, `content`, `image`) VALUES 
-    (NULL, 'Auburn', 'Blanditiis doloremque natus aut aspernatur labore mollitia ad hic reiciendis temporibus.', 'https://via.placeholder.com/150'), 
-    (NULL, 'Seoul', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae debitis fugiat vitae.', 'https://via.placeholder.com/150'), 
-    (NULL, 'Gotham', 'Repellendus alias quaerat magni at labore non dignissimos animi ipsam nobis, aperiam.', 'https://via.placeholder.com/150');
+INSERT INTO `article` (`id`, `title`, `content`, `image`, `category_id`) VALUES 
+    (NULL, 'Auburn', 'Blanditiis doloremque natus aut aspernatur labore mollitia ad hic reiciendis temporibus.', 'https://via.placeholder.com/150', 1), 
+    (NULL, 'Seoul', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae debitis fugiat vitae.', 'https://via.placeholder.com/150', 2), 
+    (NULL, 'Gotham', 'Repellendus alias quaerat magni at labore non dignissimos animi ipsam nobis, aperiam.', 'https://via.placeholder.com/150', 1);

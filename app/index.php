@@ -10,7 +10,7 @@ include_once 'layouts/body_start.php';
 include_once 'layouts/container_start.php';
 
 require '../model/article_model.php';
-$articles = readAll();
+$articles = readAllArticles();
 
 include_once 'pages/article/components/create_article.php';
 ?>

@@ -3,15 +3,16 @@
 /*
  * @create_article
  */
-function create(string $title, string $content, string $image)
+function createArticle(string $title, string $content, string $image, int $category)
 {
     require '../../../.connec.php';
     $pdo = new PDO(DSN, USER, PASSWORD);
     try {
-        $statement = $pdo->prepare("INSERT INTO article (title, content, image) VALUES (:title, :content, :image)");
+        $statement = $pdo->prepare("INSERT INTO article (title, content, image, category_id) VALUES (:title, :content, :image, :category_id)");
         $statement->bindValue(":title", $title, PDO::PARAM_STR);
         $statement->bindValue(":content", $content, PDO::PARAM_STR);
         $statement->bindValue(":image", $image, PDO::PARAM_STR);
+        $statement->bindValue(":category_id", $category, PDO::PARAM_INT);
         $statement->execute();
         return $pdo->lastInsertId();
     } catch (PDOException $e) {
@@ -22,7 +23,7 @@ function create(string $title, string $content, string $image)
 /*
  * @find_all articles []
  */
-function readAll()
+function readAllArticles()
 {
     require '../.connec.php';
     $pdo = new PDO(DSN, USER, PASSWORD);
@@ -37,7 +38,7 @@ function readAll()
 /*
  * @find_one article
  */
-function readOne(int $id)
+function readOneArticle(int $id)
 {
     require '../../../.connec.php';
     $pdo = new PDO(DSN, USER, PASSWORD);
@@ -55,15 +56,16 @@ function readOne(int $id)
 /*
  * @update article
  */
-function update(int $id, string $title, string $content, string $image)
+function updateArticle(int $id, string $title, string $content, string $image, int $category)
 {
     require '../../../.connec.php';
     $pdo = new PDO(DSN, USER, PASSWORD);
     try {
-        $statement = $pdo->prepare("UPDATE article SET title=:title, content=:content, image=:image WHERE id=:id");
+        $statement = $pdo->prepare("UPDATE article SET title=:title, content=:content, image=:image, category_id=:category_id WHERE id=:id");
         $statement->bindValue(":title", $title, PDO::PARAM_STR);
         $statement->bindValue(":content", $content, PDO::PARAM_STR);
         $statement->bindValue(":image", $image, PDO::PARAM_STR);
+        $statement->bindValue(":category_id", $image, PDO::PARAM_INT);
         $statement->bindValue(":id", $id, PDO::PARAM_INT);
         $statement->execute();
         return $statement->rowCount();
@@ -75,7 +77,7 @@ function update(int $id, string $title, string $content, string $image)
 /*
  * @delete article
  */
-function delete(int $id)
+function deleteArticle(int $id)
 {
     require '../../../.connec.php';
     $pdo = new PDO(DSN, USER, PASSWORD);

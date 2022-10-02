@@ -13,7 +13,7 @@ require '../../../model/article_model.php';
 
 $article = "";
 if (isset($_GET['id']) && !empty($_GET['id'])) {
-    $article = readOne($_GET['id']);
+    $article = readOneArticle($_GET['id']);
 }
 if (empty($article)) {
     header('Location: /pages/404.php');

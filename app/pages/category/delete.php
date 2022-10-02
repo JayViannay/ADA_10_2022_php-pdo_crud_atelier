@@ -5,14 +5,14 @@
  * URL: '/pages/category/delete.php?id={id}'
  */
 
-require '../../../.connec.php';
+require '../../../model/category_model.php';
 
+$category = "";
 if (isset($_GET['id']) && !empty($_GET['id'])) {
-    $pdo = new PDO(DSN, USER, PASSWORD);
-    $statement = $pdo->prepare("DELETE FROM category WHERE id=:id");
-    $statement->bindValue(':id', $_GET['id'], PDO::PARAM_INT);
-    $statement->execute();
-    
+    $category = readOne($_GET['id']);
+    if (empty($category)) {
+        header('Location: /pages/404.php');
+    }
+    deleteCategory($category->id);
     header('Location: /pages/category/index.php');
 }
-header('Location: /pages/category/index.php');

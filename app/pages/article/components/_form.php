@@ -12,6 +12,14 @@
                 <input type="text" class="form-control" id="title" name="title" value=<?= isset($article) ? $article->title : "" ?>>
             </div>
             <div class="mb-3">
+                <select class="form-select" name="category_id" id="category_id">
+                    <option selected>Select a category</option>
+                    <?php foreach ($categories as $category) : ?>
+                        <option value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div class="mb-3">
                 <label for="content" class="form-label">Content</label>
                 <textarea class="form-control" id="content" rows="3" name="content"><?= isset($article) ? $article->content : "" ?></textarea>
             </div>

@@ -9,11 +9,14 @@ include_once '../../layouts/body_start.php';
 include_once '../../layouts/container_start.php';
 
 require '../../../model/article_model.php';
+require '../../../model/category_model.php';
 
 $error = "";
+$categories = readAllCategories();
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (!empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['image'])) {
-        create($_POST['title'], $_POST['content'], $_POST['image']);
+    if (!empty($_POST['title']) && !empty($_POST['content']) && !empty($_POST['image']) && !empty($_POST['category_id'])) {
+        createArticle($_POST['title'], $_POST['content'], $_POST['image'], $_POST['category_id']);
         header('Location: /');
     } else {
         $error = "All fields are required !";
