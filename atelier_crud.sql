@@ -56,14 +56,13 @@ ALTER TABLE `article`
 ALTER TABLE `article`
   ADD CONSTRAINT `fk_article_category` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`);
 
-
 -- --------------------------------------------------------
 -- AJOUT DE QUELQUES DONNÉES DANS LA TABLE `category` :
 
 INSERT INTO `category` (`id`, `name`) VALUES 
-    (NULL, 'Vestibulum'), 
-    (NULL, 'Vivamus'), 
-    (NULL, 'Suspendisse');
+    (NULL, 'Sport'), 
+    (NULL, 'Mode'), 
+    (NULL, 'Science');
 
 -- --------------------------------------------------------
 -- AJOUT DE QUELQUES DONNÉES DANS LA TABLE `article` :
