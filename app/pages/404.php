@@ -4,6 +4,7 @@
  * Path: app/pages/404.php
  * URL: -
  */
+// @03_404
 include_once '../layouts/head.php';
 include_once '../layouts/body_start.php';
 include_once '../layouts/container_start.php';

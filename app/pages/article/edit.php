@@ -22,6 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = "All fields are required !";
     }
 }
+// @03_404
 if (empty($article)) {
     header('Location: /pages/404.php');
 }
